@@ -50,3 +50,4 @@ C:\Users\HP\Desktop\Final Project\RentACarProject\RentACarProject\RentACarProjec
 C:\Users\HP\Desktop\Final Project\RentACarProject\RentACarProject\RentACarProject\obj\Debug\netcoreapp3.1\RentACarProject.dll
 C:\Users\HP\Desktop\Final Project\RentACarProject\RentACarProject\RentACarProject\obj\Debug\netcoreapp3.1\RentACarProject.pdb
 C:\Users\HP\Desktop\Final Project\RentACarProject\RentACarProject\RentACarProject\obj\Debug\netcoreapp3.1\RentACarProject.genruntimeconfig.cache
+C:\Users\HP\Desktop\Final Project\RentACarProject\RentACarProject\RentACarProject\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
