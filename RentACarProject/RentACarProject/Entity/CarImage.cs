@@ -1,9 +1,10 @@
-﻿namespace RentACarProject.Models
+﻿namespace RentACarProject.Entity
 {
     public class CarImage
     {
         public int Id { get; set; }
         public string ImageUrl { get; set; }
+        
 
 
         #region CarImageCarRelation

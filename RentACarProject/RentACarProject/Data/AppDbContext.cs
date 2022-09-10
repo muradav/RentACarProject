@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using RentACarProject.Models;
+using RentACarProject.Entity;
 using System;
 
 namespace RentACarProject.Data
@@ -137,7 +137,7 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 1,
-                    Name="BMW M5",
+                    Name="M5",
                     ModelYear = 2012,
                     DailyPrice = 250,
                     FuelType="Petrol",
@@ -151,7 +151,7 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 2,
-                    Name = "BMW X5",
+                    Name = "X5",
                     ModelYear = 2011,
                     DailyPrice = 200,
                     FuelType = "Petrol",
@@ -165,11 +165,11 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 3,
-                    Name = "Chevrolet Aveo",
+                    Name = "Aveo",
                     ModelYear = 2013,
                     DailyPrice = 50,
                     FuelType = "Petrol",
-                    TransmissionType = "Auto",
+                    TransmissionType = "Manual",
                     PassengerCount = 5,
                     BrandId = 8,
                     ColorId = 2,
@@ -179,11 +179,11 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 4,
-                    Name = "Hyundai Accent",
+                    Name = "Accent",
                     ModelYear = 2014,
                     DailyPrice = 50,
                     FuelType = "Petrol",
-                    TransmissionType = "Auto",
+                    TransmissionType = "Manual",
                     PassengerCount = 5,
                     BrandId = 2,
                     ColorId = 2,
@@ -193,7 +193,7 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 5,
-                    Name = "Hyundai Azera",
+                    Name = "Azera",
                     ModelYear = 2013,
                     DailyPrice = 85,
                     FuelType = "Petrol",
@@ -207,7 +207,7 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 6,
-                    Name = "Hyundai Elantra",
+                    Name = "Elantra",
                     ModelYear = 2015,
                     DailyPrice = 55,
                     FuelType = "Petrol",
@@ -221,10 +221,10 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 7,
-                    Name = "Hyundai H1",
+                    Name = "H1",
                     ModelYear = 2014,
                     DailyPrice = 140,
-                    FuelType = "Petrol",
+                    FuelType = "Diesel",
                     TransmissionType = "Auto",
                     PassengerCount = 9,
                     BrandId = 2,
@@ -235,7 +235,7 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 8,
-                    Name = "Hyundai Ix35",
+                    Name = "Ix35",
                     ModelYear = 2014,
                     DailyPrice = 65,
                     FuelType = "Petrol",
@@ -249,10 +249,10 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 9,
-                    Name = "Hyundai Sonata",
+                    Name = "Sonata",
                     ModelYear = 2013,
                     DailyPrice = 70,
-                    FuelType = "Petrol",
+                    FuelType = "Diesel",
                     TransmissionType = "Auto",
                     PassengerCount = 5,
                     BrandId = 2,
@@ -263,7 +263,7 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 10,
-                    Name = "Hyundai Sonata",
+                    Name = "Sonata",
                     ModelYear = 2017,
                     DailyPrice = 75,
                     FuelType = "Petrol",
@@ -277,7 +277,7 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 11,
-                    Name = "Kia Cerato",
+                    Name = "Cerato",
                     ModelYear = 2014,
                     DailyPrice = 55,
                     FuelType = "Petrol",
@@ -291,7 +291,7 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 12,
-                    Name = "Kia Optima",
+                    Name = "Optima",
                     ModelYear = 2014,
                     DailyPrice = 75,
                     FuelType = "Petrol",
@@ -305,11 +305,11 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 13,
-                    Name = "Kia Rio",
+                    Name = "Rio",
                     ModelYear = 2014,
                     DailyPrice = 50,
                     FuelType = "Diesel",
-                    TransmissionType = "Auto",
+                    TransmissionType = "Manual",
                     PassengerCount = 5,
                     BrandId = 7,
                     ColorId = 4,
@@ -319,7 +319,7 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 14,
-                    Name = "Kia Sorento",
+                    Name = "Sorento",
                     ModelYear = 2013,
                     DailyPrice = 90,
                     FuelType = "Diesel",
@@ -333,7 +333,7 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 15,
-                    Name = "Kia Sportage",
+                    Name = "Sportage",
                     ModelYear = 2014,
                     DailyPrice = 65,
                     FuelType = "Petrol",
@@ -347,7 +347,7 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 16,
-                    Name = "Lexus 570",
+                    Name = "LX570",
                     ModelYear = 2012,
                     DailyPrice = 200,
                     FuelType = "Petrol",
@@ -361,7 +361,7 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 17,
-                    Name = "Mercedes G-class",
+                    Name = "G-class",
                     ModelYear = 2012,
                     DailyPrice = 350,
                     FuelType = "Petrol",
@@ -375,7 +375,7 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 18,
-                    Name = "Mercedes G-class",
+                    Name = "G-class",
                     ModelYear = 2015,
                     DailyPrice = 400,
                     FuelType = "Petrol",
@@ -389,7 +389,7 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 19,
-                    Name = "Mercedes S-class",
+                    Name = "S-class",
                     ModelYear = 2016,
                     DailyPrice = 350,
                     FuelType = "Diesel",
@@ -403,7 +403,7 @@ namespace RentACarProject.Data
                 new Car
                 {
                     Id = 20,
-                    Name = "Mercedes V-class",
+                    Name = "V-class",
                     ModelYear = 2016,
                     DailyPrice = 450,
                     FuelType = "Diesel",
@@ -417,7 +417,7 @@ namespace RentACarProject.Data
                new Car
                {
                    Id = 21,
-                   Name = "Mitsubishi L200",
+                   Name = "L200",
                    ModelYear = 2013,
                    DailyPrice = 80,
                    FuelType = "Diesel",
@@ -431,7 +431,7 @@ namespace RentACarProject.Data
                new Car
                {
                    Id = 22,
-                   Name = "Mitsubishi Pajero",
+                   Name = "Pajero",
                    ModelYear = 2013,
                    DailyPrice = 85,
                    FuelType = "Petrol",
@@ -445,7 +445,7 @@ namespace RentACarProject.Data
                new Car
                {
                    Id = 23,
-                   Name = "Nissan Navara",
+                   Name = "Navara",
                    ModelYear = 2013,
                    DailyPrice = 90,
                    FuelType = "Diesel",
@@ -459,7 +459,7 @@ namespace RentACarProject.Data
                new Car
                {
                    Id = 24,
-                   Name = "Nissan Sunny",
+                   Name = "Sunny",
                    ModelYear = 2014,
                    DailyPrice = 50,
                    FuelType = "Petrol",
@@ -473,7 +473,7 @@ namespace RentACarProject.Data
                new Car
                {
                    Id = 25,
-                   Name = "Toyota Camry",
+                   Name = "Camry",
                    ModelYear = 2013,
                    DailyPrice = 90,
                    FuelType = "Petrol",
@@ -487,7 +487,7 @@ namespace RentACarProject.Data
                new Car
                {
                    Id = 26,
-                   Name = "Toyota Land Cruiser",
+                   Name = "Land Cruiser",
                    ModelYear = 2014,
                    DailyPrice = 160,
                    FuelType = "Petrol",
@@ -501,7 +501,7 @@ namespace RentACarProject.Data
                new Car
                {
                    Id = 27,
-                   Name = "Toyota Land Cruiser",
+                   Name = "Land Cruiser",
                    ModelYear = 2018,
                    DailyPrice = 300,
                    FuelType = "Petrol",
@@ -515,7 +515,7 @@ namespace RentACarProject.Data
                new Car
                {
                    Id = 28,
-                   Name = "Toyota Prado",
+                   Name = "Prado",
                    ModelYear = 2015,
                    DailyPrice = 120,
                    FuelType = "Diesel",
@@ -529,7 +529,7 @@ namespace RentACarProject.Data
                new Car
                {
                    Id = 29,
-                   Name = "Toyota Prado",
+                   Name = "Prado",
                    ModelYear = 2018,
                    DailyPrice = 200,
                    FuelType = "Petrol",
