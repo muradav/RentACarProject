@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using RentACarProject.Data;
 using RentACarProject.Mapping;
-using RentACarProject.Entity;
+using RentACarProject.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

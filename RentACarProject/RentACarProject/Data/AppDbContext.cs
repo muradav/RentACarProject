@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using RentACarProject.Entity;
+using RentACarProject.Entities;
 using System;
 
 namespace RentACarProject.Data

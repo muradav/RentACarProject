@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RentACarProject.Data;
 using RentACarProject.Dtos.CarDtos;
-using RentACarProject.Entity;
+using RentACarProject.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

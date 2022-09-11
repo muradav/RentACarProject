@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using RentACarProject.Dtos.CarDtos;
-using RentACarProject.Entity;
+using RentACarProject.Entities;
 
 namespace RentACarProject.Mapping
 {

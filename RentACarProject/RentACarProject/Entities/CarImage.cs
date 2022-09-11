@@ -1,4 +1,4 @@
-﻿namespace RentACarProject.Entity
+﻿namespace RentACarProject.Entities
 {
     public class CarImage
     {

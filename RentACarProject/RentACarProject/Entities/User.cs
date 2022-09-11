@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace RentACarProject.Entity
+namespace RentACarProject.Entities
 {
     public class User:IdentityUser
     {

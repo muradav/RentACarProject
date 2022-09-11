@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RentACarProject.Entity
+namespace RentACarProject.Entities
 {
     public class BaseEntity
     {

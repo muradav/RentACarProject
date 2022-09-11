@@ -1,4 +1,4 @@
-﻿using RentACarProject.Entity;
+﻿using RentACarProject.Entities;
 using System.Collections.Generic;
 
 namespace RentACarProject.Dtos.CarDtos

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using RentACarProject.Data;
-using RentACarProject.Entity;
+using RentACarProject.Entities;
 using System;
 
 namespace RentACarProject.Extentions

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RentACarProject.Entity
+namespace RentACarProject.Entities
 {
     public class Brand:BaseEntity
     {
