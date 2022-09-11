@@ -13,6 +13,8 @@ namespace RentACarProject.Dtos.CarDtos
         public int PassengerCount { get; set; }
         public CarColorDto Color { get; set; }
         public CarBrandDto Brand { get; set; }
+        public List<CarImageCarDto> CarImages { get; set; }
+
     }
 
     public class CarColorDto
@@ -27,5 +29,12 @@ namespace RentACarProject.Dtos.CarDtos
         public string Name { get; set; }
         public string ImageUrl { get; set; }
     }
+
+    public class CarImageCarDto
+    {
+        public string ImageUrl { get; set; }
+    }
+
+    
 
 }

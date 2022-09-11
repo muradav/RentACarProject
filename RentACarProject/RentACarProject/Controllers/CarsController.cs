@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using RentACarProject.Data;
 using RentACarProject.Dtos.CarDtos;
 using RentACarProject.Entity;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,6 +22,7 @@ namespace RentACarProject.Controllers
             _context = context;
             _mapper = mapper;
         }
+        
         [HttpGet("{id}")]
         public async Task<IActionResult> GetOne(int id)
         {
@@ -49,16 +51,20 @@ namespace RentACarProject.Controllers
 
             CarListDto carListDto = new CarListDto();
 
-            carListDto.Items = query.Select(c => new CarReturnDto
-            {
-                Name = c.Name,
-                ModelYear = c.ModelYear,
-                DailyPrice=c.DailyPrice,
-                FuelType=c.FuelType,
-                TransmissionType=c.TransmissionType,
-                PassengerCount=c.PassengerCount
-            }).ToList();
+            //carListDto.Items = _mapper.Map(query.ToList(),typeof(CarReturnDto),typeof(List<CarListDto>));
+            carListDto.Items = _mapper.Map<List<CarReturnDto>>(query.ToList());
+
+            //carListDto.Items = query.Select(c => new CarReturnDto
+            //{
+            //    Name = c.Name,
+            //    ModelYear = c.ModelYear,
+            //    DailyPrice=c.DailyPrice,
+            //    FuelType=c.FuelType,
+            //    TransmissionType=c.TransmissionType,
+            //    PassengerCount=c.PassengerCount,
+            //}).ToList();
             carListDto.TotalCount = query.Count();
+
 
             return Ok(carListDto);
         }

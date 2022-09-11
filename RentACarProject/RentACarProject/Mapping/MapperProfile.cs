@@ -11,6 +11,8 @@ namespace RentACarProject.Mapping
             CreateMap<Color, CarColorDto>();
             CreateMap<Brand, CarBrandDto>()
                 .ForMember(d => d.ImageUrl, map => map.MapFrom(s => "https://localhost:44352/assets/img/brand/" + s.ImageUrl));
+            CreateMap<CarImage, CarImageCarDto>()
+                .ForMember(d => d.ImageUrl, map => map.MapFrom(s => "https://localhost:44352/assets/img/car/" + s.ImageUrl));
             CreateMap<Car, CarReturnDto>();
         }
     }
