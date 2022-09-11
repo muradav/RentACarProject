@@ -75,7 +75,7 @@ namespace RentACarProject.Controllers
                 return BadRequest(result.Errors);
             }
 
-            result = await _userManager.AddToRoleAsync(user, "Admin");
+            result = await _userManager.AddToRoleAsync(user, "Customer");
 
             if (!result.Succeeded)
             {
