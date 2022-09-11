@@ -16,6 +16,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation.AspNetCore;
+using RentACarProject.Extentions;
 
 namespace RentACarProject
 {
@@ -31,8 +33,9 @@ namespace RentACarProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers().
-                    AddNewtonsoftJson(options =>
+            services.AddControllers()
+                    .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<Startup>())
+                    .AddNewtonsoftJson(options =>
                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddDbContext<AppDbContext>(opt =>
             {
@@ -42,11 +45,7 @@ namespace RentACarProject
             {
                 opt.AddProfile(new MapperProfile());
             });
-            services.AddIdentity<User, IdentityRole>(opt =>
-            {
-                opt.Password.RequireNonAlphanumeric = false;
-                opt.Password.RequiredLength = 8;
-            }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
+            services.AddIdentityServices();
             services.AddSwaggerGen(opt => {
                 opt.SwaggerDoc("v1", new OpenApiInfo() { Title = "WebAPI", Version = "v1" });
                 opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -93,6 +92,8 @@ namespace RentACarProject
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Employee API V1");
             });
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

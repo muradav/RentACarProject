@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "YMjIhOMtLhPKZgM4s5rAd7w1Oe1PflMXmBu10mEpEzCAnxbDuu/TwF1kXbEiw8tXif/VDg2qN9kCmn9QyVPjsQ==",
+  "dgSpecHash": "R8h4Nyj5u0spj+JjZprOwGbcm5jQU8KQC5TaEbGPkG8HD0L8hQSdsm5WbxTTcQoy78vgPf17S3VFKKZcdHOH9g==",
   "success": true,
   "projectFilePath": "C:\\Users\\HP\\Desktop\\Final Project\\RentACarProject\\RentACarProject\\RentACarProject\\RentACarProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\fluentvalidation\\11.2.1\\fluentvalidation.11.2.1.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.2.2\\fluentvalidation.aspnetcore.11.2.2.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.2.1\\fluentvalidation.dependencyinjectionextensions.11.2.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.0\\microsoft.aspnetcore.cryptography.internal.3.1.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.0\\microsoft.aspnetcore.cryptography.keyderivation.3.1.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\3.1.0\\microsoft.aspnetcore.identity.entityframeworkcore.3.1.0.nupkg.sha512",
