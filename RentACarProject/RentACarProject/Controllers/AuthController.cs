@@ -20,9 +20,10 @@ namespace RentACarProject.Controllers
             _userManager = userManager;
             _roleManager = roleManager;
         }
+        
 
-        [HttpPost("registerAdmin")]
-        public async Task<IActionResult> RegisterAdmin(RegisterDto registerDto)
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(RegisterDto registerDto)
         {
             User user = await _userManager.FindByNameAsync(registerDto.Username);
             if (user != null)
@@ -50,39 +51,7 @@ namespace RentACarProject.Controllers
                 return BadRequest(result.Errors);
             }
 
-            return Ok("Admin registiried succesfully");
-        }
-
-        [HttpPost("registerCustomer")]
-        public async Task<IActionResult> RegisterCustomer(RegisterDto registerDto)
-        {
-            User user = await _userManager.FindByNameAsync(registerDto.Username);
-            if (user != null)
-            {
-                return BadRequest();
-            }
-            user = new User
-            {
-                UserName = registerDto.Username,
-                Name = registerDto.Name,
-                Surname = registerDto.Surname,
-                Email = registerDto.Email
-            };
-
-            var result = await _userManager.CreateAsync(user, registerDto.Password);
-            if (!result.Succeeded)
-            {
-                return BadRequest(result.Errors);
-            }
-
-            result = await _userManager.AddToRoleAsync(user, "Customer");
-
-            if (!result.Succeeded)
-            {
-                return BadRequest(result.Errors);
-            }
-
-            return Ok("Customer registiried succesfully");
+            return Ok("User registiried succesfully");
         }
 
         [HttpPost("login")]
