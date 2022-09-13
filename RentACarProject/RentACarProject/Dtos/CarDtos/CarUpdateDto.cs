@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 
 namespace RentACarProject.Dtos.CarDtos
 {
@@ -12,6 +13,6 @@ namespace RentACarProject.Dtos.CarDtos
         public int PassengerCount { get; set; }
         public int ColorId { get; set; }
         public int BrandId { get; set; }
-        public IFormFile Photo { get; set; }
+        public List<IFormFile> Photos { get; set; }
     }
 }

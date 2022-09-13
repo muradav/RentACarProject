@@ -76,8 +76,8 @@ namespace RentACarProject.Controllers
             return Ok(carListDto);
         }
 
-        [HttpPost]
-       // [Authorize(Roles = "Admin")]
+        [HttpPost("create")]
+        // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([FromForm] CarCreateDto carCreateDto)
         {
             bool existCategory = _context.Cars.Any(c => c.Name.ToLower() == carCreateDto.Name.ToLower());
@@ -85,17 +85,20 @@ namespace RentACarProject.Controllers
             {
                 return StatusCode(409);
             }
-            if (!carCreateDto.Photo.IsImage())
+            foreach (var item in carCreateDto.Photos)
             {
-                return BadRequest();
-            }
-            if (carCreateDto.Photo.ValidSize(2000))
-            {
-                return BadRequest();
+                if (!item.IsImage())
+                {
+                    return BadRequest();
+                }
+                if (item.ValidSize(2000))
+                {
+                    return BadRequest();
+                }
             }
 
             Car newCar = new Car();
-            
+
             newCar.Name = carCreateDto.Name;
             newCar.ModelYear = carCreateDto.ModelYear;
             newCar.DailyPrice = carCreateDto.DailyPrice;
@@ -109,22 +112,32 @@ namespace RentACarProject.Controllers
             await _context.AddAsync(newCar);
             await _context.SaveChangesAsync();
 
-            CarImage newcarImage = new CarImage();
-            newcarImage.ImageUrl = carCreateDto.Photo.SaveImage(_env, "assets/img/car");
-            newcarImage.CarId = newCar.Id;
+            foreach (var item in carCreateDto.Photos)
+            {
+                CarImage newcarImage = new CarImage();
+                newcarImage.ImageUrl = item.SaveImage(_env, "assets/img/car");
+                newcarImage.CarId = newCar.Id;
+                //if (item == carCreateDto.Photos[0])
+                //{
+                //    newCarImage.IsMain = true;
+                //}
 
 
-            await _context.AddAsync(newcarImage);
-            
-            await _context.SaveChangesAsync();
+                await _context.AddAsync(newcarImage);
+                await _context.SaveChangesAsync();
+            }
 
             return Ok();
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("update/{id}")]
+        // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id, [FromForm] CarUpdateDto carUpdateDto)
         {
-            Car c = _context.Cars.Include(c=>c.CarImages).FirstOrDefault(c => c.Id == id);
+            Car c = _context.Cars
+                .Include(c => c.Color)
+                .Include(c => c.Brand)
+                .Include(c => c.CarImages).FirstOrDefault(c => c.Id == id);
             if (c == null)
             {
                 return NotFound();
@@ -133,20 +146,26 @@ namespace RentACarProject.Controllers
             {
                 return BadRequest();
             }
-
-            CarImage newcarImage = new CarImage();
-
-            var carimage = await _context.CarImages.FirstOrDefaultAsync(i => i.CarId == id);
-
-            if (carUpdateDto != null)
+            if (carUpdateDto.Photos != null)
             {
-                string path = Path.Combine(_env.WebRootPath, "assets/img/car", carimage.ImageUrl);
-                path.DeleteImage();
-                newcarImage.ImageUrl = carUpdateDto.Photo.SaveImage(_env, "assets/img/car");
-                newcarImage.CarId = c.Id;
+                foreach (var item in carUpdateDto.Photos)
+                {
+                    if (!item.IsImage())
+                    {
+                        return BadRequest();
+                    }
+                    if (item.ValidSize(2000))
+                    {
+                        return BadRequest();
+                    }
 
-                await _context.AddAsync(newcarImage);
-                await _context.SaveChangesAsync();
+                    CarImage newcarImage = new CarImage();
+                    newcarImage.ImageUrl = item.SaveImage(_env, "assets/img/car");
+                    newcarImage.CarId = c.Id;
+
+                    await _context.AddAsync(newcarImage);
+                    await _context.SaveChangesAsync();
+                }
             }
 
             c.Name = carUpdateDto.Name;
@@ -159,7 +178,38 @@ namespace RentACarProject.Controllers
             c.BrandId = carUpdateDto.BrandId;
 
             await _context.SaveChangesAsync();
-            return StatusCode(200, carUpdateDto);
+            CarReturnDto carReturnDto = _mapper.Map<CarReturnDto>(c);
+            return StatusCode(200, carReturnDto);
+        }
+
+        [HttpDelete("deleteImage/{id}")]
+        public async Task<IActionResult> RemoveCarImage(int id)
+        {
+            var image = await _context.CarImages.FindAsync(id);
+
+            string path = Path.Combine(_env.WebRootPath, "assets/img/car", image.ImageUrl);
+            path.DeleteImage();
+            _context.CarImages.Remove(image);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Car c = await _context.Cars.Include(c=>c.CarImages).FirstOrDefaultAsync(c=>c.Id==id);
+            List<CarImage> carImages= new List<CarImage>();
+
+            foreach (var item in c.CarImages)
+            {
+                string path = Path.Combine(_env.WebRootPath, "assets/img/car", item.ImageUrl);
+                path.DeleteImage();
+                carImages.Add(item);
+            }
+            _context.CarImages.RemoveRange(carImages);
+            _context.Cars.Remove(c);
+            await _context.SaveChangesAsync();
+            return Ok($"Car {c.Name} Deleted Successfully.");
         }
     }
 }
