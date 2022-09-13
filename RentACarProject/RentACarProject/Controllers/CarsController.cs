@@ -9,6 +9,7 @@ using RentACarProject.Entities;
 using RentACarProject.Extentions;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -76,7 +77,7 @@ namespace RentACarProject.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([FromForm] CarCreateDto carCreateDto)
         {
             bool existCategory = _context.Cars.Any(c => c.Name.ToLower() == carCreateDto.Name.ToLower());
@@ -118,6 +119,47 @@ namespace RentACarProject.Controllers
             await _context.SaveChangesAsync();
 
             return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromForm] CarUpdateDto carUpdateDto)
+        {
+            Car c = _context.Cars.Include(c=>c.CarImages).FirstOrDefault(c => c.Id == id);
+            if (c == null)
+            {
+                return NotFound();
+            }
+            if (_context.Cars.Any(c => c.Name.ToLower() == carUpdateDto.Name.ToLower() && c.Id != id))
+            {
+                return BadRequest();
+            }
+
+            CarImage newcarImage = new CarImage();
+
+            var carimage = await _context.CarImages.FirstOrDefaultAsync(i => i.CarId == id);
+
+            if (carUpdateDto != null)
+            {
+                string path = Path.Combine(_env.WebRootPath, "assets/img/car", carimage.ImageUrl);
+                path.DeleteImage();
+                newcarImage.ImageUrl = carUpdateDto.Photo.SaveImage(_env, "assets/img/car");
+                newcarImage.CarId = c.Id;
+
+                await _context.AddAsync(newcarImage);
+                await _context.SaveChangesAsync();
+            }
+
+            c.Name = carUpdateDto.Name;
+            c.ModelYear = carUpdateDto.ModelYear;
+            c.DailyPrice = carUpdateDto.DailyPrice;
+            c.FuelType = carUpdateDto.FuelType;
+            c.TransmissionType = carUpdateDto.TransmissionType;
+            c.PassengerCount = carUpdateDto.PassengerCount;
+            c.ColorId = carUpdateDto.ColorId;
+            c.BrandId = carUpdateDto.BrandId;
+
+            await _context.SaveChangesAsync();
+            return StatusCode(200, carUpdateDto);
         }
     }
 }
