@@ -90,7 +90,7 @@ namespace RentACarProject
                     ValidateLifetime = true,
                     ValidAudience = "http://localhost:44352/",
                     ValidIssuer = "http://localhost:44352/",
-                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("01c7b0f2-7642-4c0b-bf71-ed46812cfe54"))
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(Configuration.GetSection("SecretKey:Key").Value))
                 };
             });
         }

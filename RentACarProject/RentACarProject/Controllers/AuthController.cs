@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using RentACarProject.Dtos.AuthDtos;
 using RentACarProject.Entities;
@@ -19,13 +20,15 @@ namespace RentACarProject.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IConfiguration _configuration;
 
-        public AuthController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+        public AuthController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _roleManager = roleManager;
+            _configuration = configuration;
         }
-        
+
 
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDto registerDto)
@@ -79,7 +82,7 @@ namespace RentACarProject.Controllers
 
             claims.AddRange(roles.Select(r => new Claim(ClaimTypes.Role, r)));
 
-            string secretKey = "01c7b0f2-7642-4c0b-bf71-ed46812cfe54";
+            string secretKey = _configuration.GetSection("SecretKey:Key").Value;
             SymmetricSecurityKey key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(secretKey));
             SigningCredentials credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 

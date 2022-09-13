@@ -211,5 +211,21 @@ namespace RentACarProject.Controllers
             await _context.SaveChangesAsync();
             return Ok($"Car {c.Name} Deleted Successfully.");
         }
+
+        [HttpPut("updateIsMain")]
+        public async Task<IActionResult> ChangeIsMain(int carId,int id)
+        {
+            Car c = await _context.Cars.Include(c => c.CarImages).FirstOrDefaultAsync(c=>c.Id==carId);
+            var oldMain= c.CarImages.FirstOrDefault(i => i.IsMain);
+            var newMain = c.CarImages.FirstOrDefault(i => i.Id == id);
+            if (oldMain == newMain)
+            {
+                return BadRequest("This image already is main");
+            }
+            oldMain.IsMain = false;
+            newMain.IsMain = true;
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
     }
 }

@@ -549,203 +549,232 @@ namespace RentACarProject.Data
                 {
                     Id = 1,
                     ImageUrl = "bmw-m5.jpg",
-                    CarId=1
+                    CarId=1,
+                    IsMain=true
                 });
             builder.Entity<CarImage>().HasData(
                 new CarImage
                 {
                     Id = 2,
                     ImageUrl = "bmw-x5.jpg",
-                    CarId = 2
+                    CarId = 2,
+                    IsMain = true
                 });
             builder.Entity<CarImage>().HasData(
                 new CarImage
                 {
                     Id = 3,
                     ImageUrl = "chevrolet-aveo-2013.jpg",
-                    CarId = 3
+                    CarId = 3,
+                    IsMain = true
                 });
             builder.Entity<CarImage>().HasData(
                 new CarImage
                 {
                     Id = 4,
                     ImageUrl = "hyundai-accent-2014.jpg",
-                    CarId = 4
+                    CarId = 4,
+                    IsMain = true
                 });
             builder.Entity<CarImage>().HasData(
                 new CarImage
                 {
                     Id = 5,
                     ImageUrl = "hyundai - azera - 2013.jpg",
-                    CarId = 5
+                    CarId = 5,
+                    IsMain = true
                 }); 
             builder.Entity<CarImage>().HasData(
                 new CarImage
                 {
                     Id = 6,
                     ImageUrl = "hyundai - elantra - 2015.jpg",
-                    CarId = 6
+                    CarId = 6,
+                    IsMain = true
                 });
             builder.Entity<CarImage>().HasData(
                 new CarImage
                 {
                     Id = 7,
                     ImageUrl = "hyundai-h1-2014.jpg",
-                    CarId = 7
+                    CarId = 7,
+                    IsMain = true
                 });
             builder.Entity<CarImage>().HasData(
                 new CarImage
                 {
                     Id = 8,
                     ImageUrl = "hyundai-ix35-2014.jpg",
-                    CarId = 8
+                    CarId = 8,
+                    IsMain = true
                 });
             builder.Entity<CarImage>().HasData(
                 new CarImage
                 {
                     Id = 9,
                     ImageUrl = "hyundai-sonata-2013.jpg",
-                    CarId = 9
+                    CarId = 9,
+                    IsMain = true
                 });
             builder.Entity<CarImage>().HasData(
                 new CarImage
                 {
                     Id = 10,
                     ImageUrl = "hyundai-sonata-2017.jpg",
-                    CarId = 10
+                    CarId = 10,
+                    IsMain = true
                 });
             builder.Entity<CarImage>().HasData(
                 new CarImage
                 {
                     Id = 11,
                     ImageUrl = "kia-cerato-2014.jpg",
-                    CarId = 11
+                    CarId = 11,
+                    IsMain = true
                 });
             builder.Entity<CarImage>().HasData(
                 new CarImage
                 {
                     Id = 12,
                     ImageUrl = "kia-optima-2014.jpg",
-                    CarId = 12
+                    CarId = 12,
+                    IsMain = true
                 });
             builder.Entity<CarImage>().HasData(
                 new CarImage
                 {
                     Id = 13,
                     ImageUrl = "kia-rio-2014.jpg",
-                    CarId = 13
+                    CarId = 13,
+                    IsMain = true
                 });
             builder.Entity<CarImage>().HasData(
                 new CarImage
                 {
                     Id = 14,
                     ImageUrl = "kia-sorento-2013.jpg",
-                    CarId = 14
+                    CarId = 14,
+                    IsMain = true
                 });
             builder.Entity<CarImage>().HasData(
                 new CarImage
                 {
                     Id = 15,
                     ImageUrl = "kia-sportage-2014.jpg",
-                    CarId = 15
+                    CarId = 15,
+                    IsMain = true
                 });
             builder.Entity<CarImage>().HasData(
                 new CarImage
                 {
                     Id = 16,
                     ImageUrl = "lexus-570-2012.jpg",
-                    CarId = 16
+                    CarId = 16,
+                    IsMain = true
                 });
             builder.Entity<CarImage>().HasData(
                new CarImage
                {
                    Id = 17,
                    ImageUrl = "mercedes-g-class-2012.jpg",
-                   CarId = 17
+                   CarId = 17,
+                   IsMain = true
                });
             builder.Entity<CarImage>().HasData(
                new CarImage
                {
                    Id = 18,
                    ImageUrl = "mercedes-g-class-2015.jpg",
-                   CarId = 18
+                   CarId = 18,
+                   IsMain = true
                });
             builder.Entity<CarImage>().HasData(
                new CarImage
                {
                    Id = 19,
                    ImageUrl = "mercedes-s-class-2016.jpg",
-                   CarId = 19
+                   CarId = 19,
+                   IsMain = true
                });
             builder.Entity<CarImage>().HasData(
                new CarImage
                {
                    Id = 20,
                    ImageUrl = "mercedes-v-class-2016.jpg",
-                   CarId = 20
+                   CarId = 20,
+                   IsMain = true
                });
             builder.Entity<CarImage>().HasData(
                new CarImage
                {
                    Id = 21,
                    ImageUrl = "mitsubishi-L200-2013.jpg",
-                   CarId = 21
+                   CarId = 21,
+                   IsMain = true
                });
             builder.Entity<CarImage>().HasData(
                new CarImage
                {
                    Id = 22,
                    ImageUrl = "mitsubishi-pajero.jpg",
-                   CarId = 22
+                   CarId = 22,
+                   IsMain = true
                });
             builder.Entity<CarImage>().HasData(
                new CarImage
                {
                    Id = 23,
                    ImageUrl = "nissan-navara-2013.jpg",
-                   CarId = 23
+                   CarId = 23,
+                   IsMain = true
                });
             builder.Entity<CarImage>().HasData(
                new CarImage
                {
                    Id = 24,
                    ImageUrl = "nissan-sunny-2014.jpg",
-                   CarId = 24
+                   CarId = 24,
+                   IsMain = true
                });
             builder.Entity<CarImage>().HasData(
                new CarImage
                {
                    Id = 25,
                    ImageUrl = "toyota-camry-2013.jpg",
-                   CarId = 25
+                   CarId = 25,
+                   IsMain = true
                });
             builder.Entity<CarImage>().HasData(
                new CarImage
                {
                    Id = 26,
                    ImageUrl = "toyota-land-cruiser-2014.jpg",
-                   CarId = 26
+                   CarId = 26,
+                   IsMain = true
                });
             builder.Entity<CarImage>().HasData(
                new CarImage
                {
                    Id = 27,
                    ImageUrl = "toyota-land-cruiser-2018.jpg",
-                   CarId = 27
+                   CarId = 27,
+                   IsMain = true
                });
             builder.Entity<CarImage>().HasData(
                new CarImage
                {
                    Id = 28,
                    ImageUrl = "toyota-prado-2015.jpg",
-                   CarId = 28
+                   CarId = 28,
+                   IsMain = true
                });
             builder.Entity<CarImage>().HasData(
                new CarImage
                {
                    Id = 29,
                    ImageUrl = "toyota-prado-2018.jpg",
-                   CarId = 29
+                   CarId = 29,
+                   IsMain = true
                });
 
 
