@@ -18,6 +18,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using FluentValidation.AspNetCore;
 using RentACarProject.Extentions;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 namespace RentACarProject
 {
@@ -69,6 +71,27 @@ namespace RentACarProject
                         Array.Empty<string>()
                     }
                 });
+            });
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.RequireHttpsMetadata = false;
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime = true,
+                    ValidAudience = "http://localhost:44352/",
+                    ValidIssuer = "http://localhost:44352/",
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("01c7b0f2-7642-4c0b-bf71-ed46812cfe54"))
+                };
             });
         }
 
