@@ -16,6 +16,7 @@ namespace RentACarProject.Data
         public DbSet<Car> Cars { get; set; }
         public DbSet<CarImage> CarImages { get; set; }
         public DbSet<Color> Colors { get; set; }
+        public DbSet<Rental> Rentals { get; set; }
 
 
         #region Data Seeding

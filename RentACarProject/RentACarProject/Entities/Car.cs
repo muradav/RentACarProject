@@ -26,6 +26,10 @@ namespace RentACarProject.Entities
         public Color Color { get; set; }
         #endregion
 
+        #region CarRentalRelation
+        public List<Rental> Rentals { get; set; }
+        #endregion
+
 
 
     }

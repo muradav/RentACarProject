@@ -6,6 +6,11 @@ namespace RentACarProject.Entities
     {
         public string Name { get; set; }
         public string Surname { get; set; }
+
+        #region UserRentalRelation
+        public int RentalId { get; set; }
+        public Rental Rental { get; set; }
+        #endregion
     }
 
     public enum Roles
