@@ -14,7 +14,7 @@ namespace RentACarProject.Entities
         #endregion
 
         #region UserRentalRelation
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public User User { get; set; }
         #endregion
     }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RentACarProject.Data;
 
 namespace RentACarProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220917215134_dropRentalIdColumn")]
+    partial class dropRentalIdColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -183,7 +185,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 801, DateTimeKind.Local).AddTicks(1996),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 455, DateTimeKind.Local).AddTicks(2734),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "mercedes.png",
                             Name = "Mercedes",
@@ -193,7 +195,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 805, DateTimeKind.Local).AddTicks(2605),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 460, DateTimeKind.Local).AddTicks(12),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "hyundai.png",
                             Name = "Hyundai",
@@ -203,7 +205,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 805, DateTimeKind.Local).AddTicks(3093),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 460, DateTimeKind.Local).AddTicks(531),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "toyota.png",
                             Name = "Toyota",
@@ -213,7 +215,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 805, DateTimeKind.Local).AddTicks(3211),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 460, DateTimeKind.Local).AddTicks(687),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "bmw.png",
                             Name = "BMW",
@@ -223,7 +225,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 805, DateTimeKind.Local).AddTicks(3306),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 460, DateTimeKind.Local).AddTicks(795),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "nissan.png",
                             Name = "Nissan",
@@ -233,7 +235,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 805, DateTimeKind.Local).AddTicks(3417),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 460, DateTimeKind.Local).AddTicks(912),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "mitsubishi.png",
                             Name = "Mitsubishi",
@@ -243,7 +245,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 805, DateTimeKind.Local).AddTicks(3512),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 460, DateTimeKind.Local).AddTicks(1007),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "kia.png",
                             Name = "Kia",
@@ -253,7 +255,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 805, DateTimeKind.Local).AddTicks(3592),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 460, DateTimeKind.Local).AddTicks(1110),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "chevrolet.png",
                             Name = "Chevrolet",
@@ -263,7 +265,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 805, DateTimeKind.Local).AddTicks(3672),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 460, DateTimeKind.Local).AddTicks(1200),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "lexus.png",
                             Name = "Lexus",
@@ -329,7 +331,7 @@ namespace RentACarProject.Migrations
                             Id = 1,
                             BrandId = 4,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(3293),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(802),
                             DailyPrice = 250.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -345,7 +347,7 @@ namespace RentACarProject.Migrations
                             Id = 2,
                             BrandId = 4,
                             ColorId = 3,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(4155),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(1571),
                             DailyPrice = 200.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -361,7 +363,7 @@ namespace RentACarProject.Migrations
                             Id = 3,
                             BrandId = 8,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(4331),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(1721),
                             DailyPrice = 50.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -377,7 +379,7 @@ namespace RentACarProject.Migrations
                             Id = 4,
                             BrandId = 2,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(4448),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(1812),
                             DailyPrice = 50.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -393,7 +395,7 @@ namespace RentACarProject.Migrations
                             Id = 5,
                             BrandId = 2,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(4547),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(1900),
                             DailyPrice = 85.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -409,7 +411,7 @@ namespace RentACarProject.Migrations
                             Id = 6,
                             BrandId = 2,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(4652),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(1996),
                             DailyPrice = 55.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -425,7 +427,7 @@ namespace RentACarProject.Migrations
                             Id = 7,
                             BrandId = 2,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(4880),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(2074),
                             DailyPrice = 140.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -441,7 +443,7 @@ namespace RentACarProject.Migrations
                             Id = 8,
                             BrandId = 2,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(4994),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(2161),
                             DailyPrice = 65.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -457,7 +459,7 @@ namespace RentACarProject.Migrations
                             Id = 9,
                             BrandId = 2,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5085),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(2239),
                             DailyPrice = 70.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -473,7 +475,7 @@ namespace RentACarProject.Migrations
                             Id = 10,
                             BrandId = 2,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5193),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(2329),
                             DailyPrice = 75.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -489,7 +491,7 @@ namespace RentACarProject.Migrations
                             Id = 11,
                             BrandId = 7,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5288),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(2416),
                             DailyPrice = 55.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -505,7 +507,7 @@ namespace RentACarProject.Migrations
                             Id = 12,
                             BrandId = 7,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5378),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(2502),
                             DailyPrice = 75.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -521,7 +523,7 @@ namespace RentACarProject.Migrations
                             Id = 13,
                             BrandId = 7,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5475),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(2583),
                             DailyPrice = 50.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -537,7 +539,7 @@ namespace RentACarProject.Migrations
                             Id = 14,
                             BrandId = 7,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5572),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(2665),
                             DailyPrice = 90.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -553,7 +555,7 @@ namespace RentACarProject.Migrations
                             Id = 15,
                             BrandId = 7,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5762),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(2741),
                             DailyPrice = 65.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -569,7 +571,7 @@ namespace RentACarProject.Migrations
                             Id = 16,
                             BrandId = 9,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5872),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(2819),
                             DailyPrice = 200.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -585,7 +587,7 @@ namespace RentACarProject.Migrations
                             Id = 17,
                             BrandId = 1,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5961),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(3031),
                             DailyPrice = 350.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -601,7 +603,7 @@ namespace RentACarProject.Migrations
                             Id = 18,
                             BrandId = 1,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6065),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(3138),
                             DailyPrice = 400.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -617,7 +619,7 @@ namespace RentACarProject.Migrations
                             Id = 19,
                             BrandId = 1,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6160),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(3224),
                             DailyPrice = 350.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -633,7 +635,7 @@ namespace RentACarProject.Migrations
                             Id = 20,
                             BrandId = 1,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6251),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(3300),
                             DailyPrice = 450.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -649,7 +651,7 @@ namespace RentACarProject.Migrations
                             Id = 21,
                             BrandId = 6,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6341),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(3375),
                             DailyPrice = 80.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -665,7 +667,7 @@ namespace RentACarProject.Migrations
                             Id = 22,
                             BrandId = 6,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6433),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(3457),
                             DailyPrice = 85.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -681,7 +683,7 @@ namespace RentACarProject.Migrations
                             Id = 23,
                             BrandId = 5,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6521),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(3533),
                             DailyPrice = 90.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -697,7 +699,7 @@ namespace RentACarProject.Migrations
                             Id = 24,
                             BrandId = 5,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6605),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(3612),
                             DailyPrice = 50.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -713,7 +715,7 @@ namespace RentACarProject.Migrations
                             Id = 25,
                             BrandId = 3,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6686),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(3691),
                             DailyPrice = 90.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -729,7 +731,7 @@ namespace RentACarProject.Migrations
                             Id = 26,
                             BrandId = 3,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6878),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(3766),
                             DailyPrice = 160.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -745,7 +747,7 @@ namespace RentACarProject.Migrations
                             Id = 27,
                             BrandId = 3,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6989),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(3841),
                             DailyPrice = 300.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -761,7 +763,7 @@ namespace RentACarProject.Migrations
                             Id = 28,
                             BrandId = 3,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(7081),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(3917),
                             DailyPrice = 120.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -777,7 +779,7 @@ namespace RentACarProject.Migrations
                             Id = 29,
                             BrandId = 3,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(7171),
+                            CreatedAt = new DateTime(2022, 9, 18, 1, 51, 33, 461, DateTimeKind.Local).AddTicks(3988),
                             DailyPrice = 200.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -1080,7 +1082,10 @@ namespace RentACarProject.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserId")
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId1")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("isDeleted")
@@ -1090,7 +1095,7 @@ namespace RentACarProject.Migrations
 
                     b.HasIndex("CarId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId1");
 
                     b.ToTable("Rentals");
                 });
@@ -1251,7 +1256,7 @@ namespace RentACarProject.Migrations
 
                     b.HasOne("RentACarProject.Entities.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId1");
                 });
 #pragma warning restore 612, 618
         }
