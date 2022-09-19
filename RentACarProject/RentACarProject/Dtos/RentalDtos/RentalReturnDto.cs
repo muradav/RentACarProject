@@ -7,7 +7,7 @@ namespace RentACarProject.Dtos.RentalDtos
     public class RentalReturnDto
     {
         public DateTime RentDate { get; set; }
-        public DateTime? ReturnDate { get; set; }
+        public DateTime ReturnDate { get; set; }
         public RentalUserDto User { get; set; }
         public RentalCarDto Car { get; set; }
     }

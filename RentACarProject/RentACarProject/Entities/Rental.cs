@@ -6,7 +6,7 @@ namespace RentACarProject.Entities
     {
         public DateTime RentDate { get; set; }
 
-        public DateTime? ReturnDate { get; set; }
+        public DateTime ReturnDate { get; set; }
 
         #region CarRentalRelation
         public int CarId { get; set; }

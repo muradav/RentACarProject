@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using RentACarProject.Data;
 using RentACarProject.Dtos.RentalDtos;
 using RentACarProject.Entities;
+using RentACarProject.Extentions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -57,6 +59,33 @@ namespace RentACarProject.Controllers
             rentalListDto.TotalCount =await query.CountAsync();
 
             return Ok(rentalListDto);
+        }
+
+        [HttpPost("create")]
+        public async Task<IActionResult> Create(int id, [FromForm] RentalCreateDto rentalCreateDto)
+        {
+            var car = await _context.Cars.FirstOrDefaultAsync(c => c.Id == id);
+
+            if (car == null) return NotFound();
+
+            var rental = await _context.Rentals.FirstOrDefaultAsync(r => r.CarId == id);
+
+            if (rental!=null)
+            {
+                var checkDate = rentalCreateDto.RentDate.InRange(rental.RentDate, rental.ReturnDate);
+                if (checkDate)
+                {
+                    return Ok($"Car is reserved from {rental.RentDate.ToString("MM/dd/yyyy")} till {rental.ReturnDate.ToString("MM/dd/yyyy")}");
+                }
+            }
+
+            Rental newRental = new Rental()
+            {
+                RentDate = rentalCreateDto.RentDate,
+                ReturnDate = rentalCreateDto.ReturnDate
+            };
+
+            return Ok();
         }
     }
 }
