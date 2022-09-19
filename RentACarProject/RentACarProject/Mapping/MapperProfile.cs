@@ -2,6 +2,7 @@
 using RentACarProject.Dtos.BrandDtos;
 using RentACarProject.Dtos.CarDtos;
 using RentACarProject.Dtos.ColorDtos;
+using RentACarProject.Dtos.RentalDtos;
 using RentACarProject.Entities;
 
 namespace RentACarProject.Mapping
@@ -30,6 +31,13 @@ namespace RentACarProject.Mapping
 
             #region ColorMap
             CreateMap<Color, ColorReturnDto>();
+            #endregion
+
+            #region RentalMap
+            CreateMap<User, RentalUserDto>();
+            CreateMap<Car, RentalCarDto>();
+            CreateMap<Brand, RentalBrandDto>();
+            CreateMap<Rental, RentalReturnDto>();
             #endregion
         }
     }
