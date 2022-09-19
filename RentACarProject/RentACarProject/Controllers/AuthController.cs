@@ -11,6 +11,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace RentACarProject.Controllers
 {
@@ -20,12 +21,14 @@ namespace RentACarProject.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly SignInManager<User> _signInManager;
         private readonly IConfiguration _configuration;
 
-        public AuthController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+        public AuthController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, SignInManager<User> signInManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _roleManager = roleManager;
+            _signInManager = signInManager;
             _configuration = configuration;
         }
 
@@ -71,6 +74,19 @@ namespace RentACarProject.Controllers
             {
                 return BadRequest();
             }
+            
+            SignInResult result = await _signInManager.PasswordSignInAsync(user, loginDto.Password, true, true);
+
+            if (result.IsLockedOut)
+            {
+                return Ok("User locked out temporary");
+            }
+
+            if (!result.Succeeded)
+            {
+                return Ok("Please try again!");
+            }
+
 
             List<Claim> claims = new List<Claim>();
             claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id));
@@ -99,7 +115,14 @@ namespace RentACarProject.Controllers
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return Ok(new { token = tokenHandler.WriteToken(token) });
+            return Ok(new { token = tokenHandler.WriteToken(token),user=user });
+        }
+
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return Ok();
         }
 
         [HttpGet]
