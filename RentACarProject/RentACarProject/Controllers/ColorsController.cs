@@ -74,7 +74,7 @@ namespace RentACarProject.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, ColorUpdateDto colorUpdateDto)
         {
-            Color c = _context.Colors.FirstOrDefault(c => c.Id == id);
+            Color c = _context.Colors.Where(c => c.isDeleted==false).FirstOrDefault(c => c.Id == id);
             if (c == null)
             {
                 return NotFound();
@@ -93,14 +93,10 @@ namespace RentACarProject.Controllers
         [HttpDelete("remove/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            Color c = _context.Colors.FirstOrDefault(c => c.Id == id);
+            Color c = _context.Colors.Where(c => c.isDeleted==false).FirstOrDefault(c => c.Id == id);
             if (c == null)
             {
                 return NotFound();
-            }
-            if (c.isDeleted == true)
-            {
-                return Ok("Already Removed");
             }
 
 
@@ -114,14 +110,10 @@ namespace RentACarProject.Controllers
         [HttpPatch("backup/{id}")]
         public async Task<IActionResult> Return(int id)
         {
-            Color c = _context.Colors.FirstOrDefault(c => c.Id == id);
+            Color c = _context.Colors.Where(c => c.isDeleted==true).FirstOrDefault(c => c.Id == id);
             if (c == null)
             {
                 return NotFound();
-            }
-            if (c.isDeleted==false)
-            {
-                return Ok("Already Backed Up");
             }
 
             c.isDeleted = false;
@@ -129,6 +121,19 @@ namespace RentACarProject.Controllers
 
             await _context.SaveChangesAsync();
             return Ok($"Color {c.Name} is Created Again Successfully.");
+        }
+
+        [HttpGet("deletedcolors")]
+        public async Task<IActionResult> GetAllDeleted()
+        {
+            var query = _context.Colors.Where(c => c.isDeleted == true);
+
+            ColorListDto colorListDto = new ColorListDto();
+
+            colorListDto.Items = _mapper.Map<List<ColorReturnDto>>(await query.ToListAsync());
+            colorListDto.TotalCount = query.Count();
+
+            return Ok(colorListDto);
         }
     }
 }
