@@ -88,7 +88,7 @@ namespace RentACarProject.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id,[FromForm] BrandUpdateDto brandUpdateDto)
         {
-            Brand b = _context.Brands.FirstOrDefault(b => b.Id == id);
+            Brand b =await _context.Brands.Where(b => b.isDeleted==false).FirstOrDefaultAsync(b => b.Id == id);
             if (b == null)
             {
                 return NotFound();
@@ -111,20 +111,51 @@ namespace RentACarProject.Controllers
             return StatusCode(200, brandUpdateDto);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("remove/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            Brand b = _context.Brands.FirstOrDefault(b => b.Id == id);
+            Brand b =await _context.Brands.Where(b => b.isDeleted==false).FirstOrDefaultAsync(b => b.Id == id);
             if (b == null)
             {
                 return NotFound();
             }
 
-            string path = Path.Combine(_env.WebRootPath, "assets/img/brand", b.ImageUrl);
-            path.DeleteImage();
-            _context.Brands.Remove(b);
+            b.isDeleted = true;
+            b.DeletedAt = DateTime.Now;
+
             await _context.SaveChangesAsync();
             return Ok($"Brand {b.Name} Deleted Successfully.");
+        }
+
+        [HttpPatch("backup/{id}")]
+        public async Task<IActionResult> Return(int id)
+        {
+            Brand b = await _context.Brands.Where(b => b.isDeleted == true).FirstOrDefaultAsync(b => b.Id == id);
+
+            if (b == null)
+            {
+                return NotFound();
+            }
+
+            b.isDeleted = false;
+            b.CreatedAt = DateTime.Now;
+
+            await _context.SaveChangesAsync();
+
+            return Ok($"Brand {b.Name} is Created Again Successfully.");
+        }
+
+        [HttpGet("deletedbrands")]
+        public async Task<IActionResult> GetAllDeleted()
+        {
+            var query = _context.Brands.Where(b => b.isDeleted == true);
+
+            BrandListDto brandListDto = new BrandListDto();
+
+            brandListDto.Items = _mapper.Map<List<BrandReturnDto>>(await query.ToListAsync());
+            brandListDto.TotalCount = query.Count();
+
+            return Ok(brandListDto);
         }
     }
 }
