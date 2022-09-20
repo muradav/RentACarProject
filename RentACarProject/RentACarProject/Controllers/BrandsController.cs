@@ -51,7 +51,7 @@ namespace RentACarProject.Controllers
 
             BrandListDto brandListDto = new BrandListDto();
 
-            brandListDto.Items = _mapper.Map<List<BrandReturnDto>>(query.ToList());
+            brandListDto.Items = _mapper.Map<List<BrandReturnDto>>(await query.ToListAsync());
             brandListDto.TotalCount = query.Count();
 
             return Ok(brandListDto);
@@ -60,8 +60,8 @@ namespace RentACarProject.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] BrandCreateDto brandCreateDto)
         {
-            bool existCategory = _context.Brands.Any(c => c.Name.ToLower() == brandCreateDto.Name.ToLower());
-            if (existCategory)
+            bool existBrand = _context.Brands.Any(c => c.Name.ToLower() == brandCreateDto.Name.ToLower());
+            if (existBrand)
             {
                 return StatusCode(409);
             }
