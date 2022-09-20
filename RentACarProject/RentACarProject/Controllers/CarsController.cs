@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RentACarProject.Data;
 using RentACarProject.Dtos.CarDtos;
+using RentACarProject.Dtos.CarImageDtos;
 using RentACarProject.Entities;
 using RentACarProject.Extentions;
 using System;
@@ -52,6 +53,35 @@ namespace RentACarProject.Controllers
         {
             var query = _context.Cars
                 .Where(c => c.isDeleted == false)
+                .Include(c => c.Brand)
+                .Include(c => c.CarImages)
+                .Include(c => c.Color);
+
+            CarListDto carListDto = new CarListDto();
+
+            //carListDto.Items = _mapper.Map(query.ToList(),typeof(CarReturnDto),typeof(List<CarListDto>));
+            carListDto.Items = _mapper.Map<List<CarReturnDto>>(await query.ToListAsync());
+
+            //carListDto.Items = query.Select(c => new CarReturnDto
+            //{
+            //    Name = c.Name,
+            //    ModelYear = c.ModelYear,
+            //    DailyPrice=c.DailyPrice,
+            //    FuelType=c.FuelType,
+            //    TransmissionType=c.TransmissionType,
+            //    PassengerCount=c.PassengerCount,
+            //}).ToList();
+            carListDto.TotalCount = query.Count();
+
+
+            return Ok(carListDto);
+        }
+
+        [HttpGet("deletedCars")]
+        public async Task<IActionResult> GetAllDeleted()
+        {
+            var query = _context.Cars
+                .Where(c => c.isDeleted == true)
                 .Include(c => c.Brand)
                 .Include(c => c.CarImages)
                 .Include(c => c.Color);
@@ -135,6 +165,7 @@ namespace RentACarProject.Controllers
         public async Task<IActionResult> Update(int id, [FromForm] CarUpdateDto carUpdateDto)
         {
             Car c = _context.Cars
+                .Where(c => c.isDeleted==false)
                 .Include(c => c.Color)
                 .Include(c => c.Brand)
                 .Include(c => c.CarImages).FirstOrDefault(c => c.Id == id);
@@ -186,22 +217,50 @@ namespace RentACarProject.Controllers
         // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> RemoveCarImage(int id)
         {
-            var image = await _context.CarImages.FindAsync(id);
+            var image = await _context.CarImages.Where(i=>i.isDeleted==false).FirstOrDefaultAsync(i => i.Id==id);
 
             if (image == null) return NotFound();
 
-            string path = Path.Combine(_env.WebRootPath, "assets/img/car", image.ImageUrl);
-            path.DeleteImage();
-            _context.CarImages.Remove(image);
+            //string path = Path.Combine(_env.WebRootPath, "assets/img/car", image.ImageUrl);
+            //path.DeleteImage();
+            //_context.CarImages.Remove(image);
+            image.isDeleted = true;
+            image.DeletedAt = DateTime.Now;
             await _context.SaveChangesAsync();
             return Ok();
+        }
+        [HttpPatch("backUpImage/{id}")]
+        // [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> ReturnCarImage(int id)
+        {
+            var image = await _context.CarImages.Where(i => i.isDeleted == true).FirstOrDefaultAsync(i => i.Id == id);
+
+            if (image == null) return NotFound();
+
+            image.isDeleted = true;
+            image.CreatedAt = DateTime.Now;
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
+        [HttpGet("deletedImages")]
+        public async Task<IActionResult> GetAllDeletedCars()
+        {
+            var query = _context.CarImages.Where(b => b.isDeleted == true);
+
+            CarImageListDto carImageListDto = new CarImageListDto();
+
+            carImageListDto.Items = _mapper.Map<List<CarImageReturnDto>>(await query.ToListAsync());
+            carImageListDto.TotalCount = query.Count();
+
+            return Ok(carImageListDto);
         }
 
         [HttpDelete("delete/{id}")]
         // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
-            Car c = await _context.Cars.Include(c=>c.CarImages).FirstOrDefaultAsync(c=>c.Id==id);
+            Car c = await _context.Cars.Where(c => c.isDeleted==false).Include(c=>c.CarImages).FirstOrDefaultAsync(c=>c.Id==id);
 
             if (c == null) return NotFound();
 
@@ -209,14 +268,34 @@ namespace RentACarProject.Controllers
 
             foreach (var item in c.CarImages)
             {
-                string path = Path.Combine(_env.WebRootPath, "assets/img/car", item.ImageUrl);
-                path.DeleteImage();
-                carImages.Add(item);
+                item.isDeleted = true;
             }
-            _context.CarImages.RemoveRange(carImages);
-            _context.Cars.Remove(c);
+            //_context.CarImages.RemoveRange(carImages);
+            //_context.Cars.Remove(c);
+            c.isDeleted = true;
             await _context.SaveChangesAsync();
             return Ok($"Car {c.Name} Deleted Successfully.");
+        }
+
+        [HttpPatch("backup/{id}")]
+        // [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Return(int id)
+        {
+            Car c = await _context.Cars.Where(c => c.isDeleted==true).Include(c => c.CarImages).FirstOrDefaultAsync(c => c.Id == id);
+
+            if (c == null) return NotFound();
+
+            List<CarImage> carImages = new List<CarImage>();
+
+            foreach (var item in c.CarImages)
+            {
+                item.isDeleted = false;
+            }
+            //_context.CarImages.RemoveRange(carImages);
+            //_context.Cars.Remove(c);
+            c.isDeleted = false;
+            await _context.SaveChangesAsync();
+            return Ok($"Car {c.Name} is Created Again Successfully.");
         }
 
         [HttpPut("updateIsMain")]

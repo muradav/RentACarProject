@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using RentACarProject.Dtos.BrandDtos;
 using RentACarProject.Dtos.CarDtos;
+using RentACarProject.Dtos.CarImageDtos;
 using RentACarProject.Dtos.ColorDtos;
 using RentACarProject.Dtos.RentalDtos;
 using RentACarProject.Entities;
@@ -38,6 +39,11 @@ namespace RentACarProject.Mapping
             CreateMap<Car, RentalCarDto>();
             CreateMap<Brand, RentalBrandDto>();
             CreateMap<Rental, RentalReturnDto>();
+            #endregion
+
+            #region CarImageMap
+            CreateMap<CarImage, CarImageReturnDto>()
+                .ForMember(d => d.ImageUrl, map => map.MapFrom(s => "https://localhost:44352/assets/img/car/" + s.ImageUrl)); ;
             #endregion
         }
     }
