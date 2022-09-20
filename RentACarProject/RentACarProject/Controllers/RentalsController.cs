@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RentACarProject.Data;
@@ -9,6 +11,7 @@ using RentACarProject.Extentions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace RentACarProject.Controllers
@@ -19,12 +22,15 @@ namespace RentACarProject.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
+        private readonly UserManager<User> _userManager;
 
 
-        public RentalsController(AppDbContext context, IMapper mapper)
+
+        public RentalsController(AppDbContext context, IMapper mapper, UserManager<User> userManager)
         {
             _context = context;
             _mapper = mapper;
+            _userManager = userManager;
         }
 
         [HttpGet("{id}")]
@@ -62,8 +68,14 @@ namespace RentACarProject.Controllers
         }
 
         [HttpPost("create")]
+        [Authorize]
         public async Task<IActionResult> Create(int id, [FromForm] RentalCreateDto rentalCreateDto)
         {
+
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (userId == null) return Ok("Please login first");
+
             var car = await _context.Cars.FirstOrDefaultAsync(c => c.Id == id);
 
             if (car == null) return NotFound();
@@ -81,11 +93,16 @@ namespace RentACarProject.Controllers
 
             Rental newRental = new Rental()
             {
+                UserId = ClaimTypes.NameIdentifier,
+                CarId = id,
                 RentDate = rentalCreateDto.RentDate,
                 ReturnDate = rentalCreateDto.ReturnDate
             };
 
-            return Ok();
+            await _context.AddAsync(newRental);
+            await _context.SaveChangesAsync();
+
+            return Ok(newRental);
         }
     }
 }
