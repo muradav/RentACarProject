@@ -59,7 +59,7 @@ namespace RentACarProject.Controllers
             CarListDto carListDto = new CarListDto();
 
             //carListDto.Items = _mapper.Map(query.ToList(),typeof(CarReturnDto),typeof(List<CarListDto>));
-            carListDto.Items = _mapper.Map<List<CarReturnDto>>(query.ToList());
+            carListDto.Items = _mapper.Map<List<CarReturnDto>>(await query.ToListAsync());
 
             //carListDto.Items = query.Select(c => new CarReturnDto
             //{
@@ -80,8 +80,8 @@ namespace RentACarProject.Controllers
         // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([FromForm] CarCreateDto carCreateDto)
         {
-            bool existCategory = _context.Cars.Any(c => c.Name.ToLower() == carCreateDto.Name.ToLower());
-            if (existCategory)
+            bool existCar = _context.Cars.Any(c => c.Name.ToLower() == carCreateDto.Name.ToLower());
+            if (existCar)
             {
                 return StatusCode(409);
             }
@@ -117,10 +117,10 @@ namespace RentACarProject.Controllers
                 CarImage newcarImage = new CarImage();
                 newcarImage.ImageUrl = item.SaveImage(_env, "assets/img/car");
                 newcarImage.CarId = newCar.Id;
-                //if (item == carCreateDto.Photos[0])
-                //{
-                //    newCarImage.IsMain = true;
-                //}
+                if (item == carCreateDto.Photos[0])
+                {
+                    newcarImage.IsMain = true;
+                }
 
 
                 await _context.AddAsync(newcarImage);
@@ -183,9 +183,12 @@ namespace RentACarProject.Controllers
         }
 
         [HttpDelete("deleteImage/{id}")]
+        // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> RemoveCarImage(int id)
         {
             var image = await _context.CarImages.FindAsync(id);
+
+            if (image == null) return NotFound();
 
             string path = Path.Combine(_env.WebRootPath, "assets/img/car", image.ImageUrl);
             path.DeleteImage();
@@ -195,9 +198,13 @@ namespace RentACarProject.Controllers
         }
 
         [HttpDelete("delete/{id}")]
+        // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             Car c = await _context.Cars.Include(c=>c.CarImages).FirstOrDefaultAsync(c=>c.Id==id);
+
+            if (c == null) return NotFound();
+
             List<CarImage> carImages= new List<CarImage>();
 
             foreach (var item in c.CarImages)
@@ -213,9 +220,13 @@ namespace RentACarProject.Controllers
         }
 
         [HttpPut("updateIsMain")]
+        // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ChangeIsMain(int carId,int id)
         {
             Car c = await _context.Cars.Include(c => c.CarImages).FirstOrDefaultAsync(c=>c.Id==carId);
+
+            if (c == null) return NotFound();
+
             var oldMain= c.CarImages.FirstOrDefault(i => i.IsMain);
             var newMain = c.CarImages.FirstOrDefault(i => i.Id == id);
             if (oldMain == newMain)
