@@ -72,7 +72,7 @@ namespace RentACarProject.Controllers
         public async Task<IActionResult> Create(int id, [FromForm] RentalCreateDto rentalCreateDto)
         {
 
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier);
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             if (userId == null) return Ok("Please login first");
 
@@ -93,7 +93,7 @@ namespace RentACarProject.Controllers
 
             Rental newRental = new Rental()
             {
-                UserId = ClaimTypes.NameIdentifier,
+                UserId = userId,
                 CarId = id,
                 RentDate = rentalCreateDto.RentDate,
                 ReturnDate = rentalCreateDto.ReturnDate
