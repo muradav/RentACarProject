@@ -21,14 +21,12 @@ namespace RentACarProject.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly SignInManager<User> _signInManager;
         private readonly IConfiguration _configuration;
 
         public AuthController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, SignInManager<User> signInManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _roleManager = roleManager;
-            _signInManager = signInManager;
             _configuration = configuration;
         }
 
@@ -74,18 +72,6 @@ namespace RentACarProject.Controllers
             {
                 return BadRequest();
             }
-            
-            SignInResult result = await _signInManager.PasswordSignInAsync(user, loginDto.Password, true, true);
-
-            if (result.IsLockedOut)
-            {
-                return Ok("User locked out temporary");
-            }
-
-            if (!result.Succeeded)
-            {
-                return Ok("Please try again!");
-            }
 
 
             List<Claim> claims = new List<Claim>();
@@ -116,13 +102,6 @@ namespace RentACarProject.Controllers
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
             return Ok(new { token = tokenHandler.WriteToken(token),user=user });
-        }
-
-        [HttpPost("logout")]
-        public async Task<IActionResult> Logout()
-        {
-            await _signInManager.SignOutAsync();
-            return Ok();
         }
 
         [HttpGet]
