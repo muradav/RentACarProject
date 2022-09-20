@@ -98,6 +98,10 @@ namespace RentACarProject.Controllers
             {
                 return NotFound();
             }
+            if (c.isDeleted == true)
+            {
+                return Ok("Already Removed");
+            }
 
 
             c.isDeleted = true;
