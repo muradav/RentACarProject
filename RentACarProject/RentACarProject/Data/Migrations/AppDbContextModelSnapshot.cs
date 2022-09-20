@@ -183,7 +183,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 801, DateTimeKind.Local).AddTicks(1996),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 507, DateTimeKind.Local).AddTicks(9498),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "mercedes.png",
                             Name = "Mercedes",
@@ -193,7 +193,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 805, DateTimeKind.Local).AddTicks(2605),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 512, DateTimeKind.Local).AddTicks(9515),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "hyundai.png",
                             Name = "Hyundai",
@@ -203,7 +203,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 805, DateTimeKind.Local).AddTicks(3093),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 513, DateTimeKind.Local).AddTicks(720),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "toyota.png",
                             Name = "Toyota",
@@ -213,7 +213,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 805, DateTimeKind.Local).AddTicks(3211),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 513, DateTimeKind.Local).AddTicks(835),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "bmw.png",
                             Name = "BMW",
@@ -223,7 +223,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 805, DateTimeKind.Local).AddTicks(3306),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 513, DateTimeKind.Local).AddTicks(932),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "nissan.png",
                             Name = "Nissan",
@@ -233,7 +233,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 805, DateTimeKind.Local).AddTicks(3417),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 513, DateTimeKind.Local).AddTicks(1038),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "mitsubishi.png",
                             Name = "Mitsubishi",
@@ -243,7 +243,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 805, DateTimeKind.Local).AddTicks(3512),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 513, DateTimeKind.Local).AddTicks(1615),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "kia.png",
                             Name = "Kia",
@@ -253,7 +253,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 805, DateTimeKind.Local).AddTicks(3592),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 513, DateTimeKind.Local).AddTicks(2556),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "chevrolet.png",
                             Name = "Chevrolet",
@@ -263,7 +263,7 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 805, DateTimeKind.Local).AddTicks(3672),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 513, DateTimeKind.Local).AddTicks(2729),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "lexus.png",
                             Name = "Lexus",
@@ -329,7 +329,7 @@ namespace RentACarProject.Migrations
                             Id = 1,
                             BrandId = 4,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(3293),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(4326),
                             DailyPrice = 250.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -345,7 +345,7 @@ namespace RentACarProject.Migrations
                             Id = 2,
                             BrandId = 4,
                             ColorId = 3,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(4155),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(5690),
                             DailyPrice = 200.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -361,7 +361,7 @@ namespace RentACarProject.Migrations
                             Id = 3,
                             BrandId = 8,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(4331),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(5874),
                             DailyPrice = 50.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -377,7 +377,7 @@ namespace RentACarProject.Migrations
                             Id = 4,
                             BrandId = 2,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(4448),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(5974),
                             DailyPrice = 50.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -393,7 +393,7 @@ namespace RentACarProject.Migrations
                             Id = 5,
                             BrandId = 2,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(4547),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(6081),
                             DailyPrice = 85.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -409,7 +409,7 @@ namespace RentACarProject.Migrations
                             Id = 6,
                             BrandId = 2,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(4652),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(6192),
                             DailyPrice = 55.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -425,7 +425,7 @@ namespace RentACarProject.Migrations
                             Id = 7,
                             BrandId = 2,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(4880),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(6296),
                             DailyPrice = 140.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -441,7 +441,7 @@ namespace RentACarProject.Migrations
                             Id = 8,
                             BrandId = 2,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(4994),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(6398),
                             DailyPrice = 65.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -457,7 +457,7 @@ namespace RentACarProject.Migrations
                             Id = 9,
                             BrandId = 2,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5085),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(6502),
                             DailyPrice = 70.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -473,7 +473,7 @@ namespace RentACarProject.Migrations
                             Id = 10,
                             BrandId = 2,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5193),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(6611),
                             DailyPrice = 75.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -489,7 +489,7 @@ namespace RentACarProject.Migrations
                             Id = 11,
                             BrandId = 7,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5288),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(6712),
                             DailyPrice = 55.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -505,7 +505,7 @@ namespace RentACarProject.Migrations
                             Id = 12,
                             BrandId = 7,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5378),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(6821),
                             DailyPrice = 75.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -521,7 +521,7 @@ namespace RentACarProject.Migrations
                             Id = 13,
                             BrandId = 7,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5475),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(6925),
                             DailyPrice = 50.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -537,7 +537,7 @@ namespace RentACarProject.Migrations
                             Id = 14,
                             BrandId = 7,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5572),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(7025),
                             DailyPrice = 90.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -553,7 +553,7 @@ namespace RentACarProject.Migrations
                             Id = 15,
                             BrandId = 7,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5762),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(7124),
                             DailyPrice = 65.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -569,7 +569,7 @@ namespace RentACarProject.Migrations
                             Id = 16,
                             BrandId = 9,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5872),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(7237),
                             DailyPrice = 200.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -585,7 +585,7 @@ namespace RentACarProject.Migrations
                             Id = 17,
                             BrandId = 1,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(5961),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(7350),
                             DailyPrice = 350.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -601,7 +601,7 @@ namespace RentACarProject.Migrations
                             Id = 18,
                             BrandId = 1,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6065),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(7472),
                             DailyPrice = 400.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -617,7 +617,7 @@ namespace RentACarProject.Migrations
                             Id = 19,
                             BrandId = 1,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6160),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(7584),
                             DailyPrice = 350.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -633,7 +633,7 @@ namespace RentACarProject.Migrations
                             Id = 20,
                             BrandId = 1,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6251),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(7855),
                             DailyPrice = 450.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -649,7 +649,7 @@ namespace RentACarProject.Migrations
                             Id = 21,
                             BrandId = 6,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6341),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(7981),
                             DailyPrice = 80.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -665,7 +665,7 @@ namespace RentACarProject.Migrations
                             Id = 22,
                             BrandId = 6,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6433),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(8085),
                             DailyPrice = 85.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -681,7 +681,7 @@ namespace RentACarProject.Migrations
                             Id = 23,
                             BrandId = 5,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6521),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(8183),
                             DailyPrice = 90.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -697,7 +697,7 @@ namespace RentACarProject.Migrations
                             Id = 24,
                             BrandId = 5,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6605),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(8285),
                             DailyPrice = 50.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -713,7 +713,7 @@ namespace RentACarProject.Migrations
                             Id = 25,
                             BrandId = 3,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6686),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(8391),
                             DailyPrice = 90.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -729,7 +729,7 @@ namespace RentACarProject.Migrations
                             Id = 26,
                             BrandId = 3,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6878),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(8491),
                             DailyPrice = 160.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -745,7 +745,7 @@ namespace RentACarProject.Migrations
                             Id = 27,
                             BrandId = 3,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(6989),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(8594),
                             DailyPrice = 300.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -761,7 +761,7 @@ namespace RentACarProject.Migrations
                             Id = 28,
                             BrandId = 3,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(7081),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(8696),
                             DailyPrice = 120.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Diesel",
@@ -777,7 +777,7 @@ namespace RentACarProject.Migrations
                             Id = 29,
                             BrandId = 3,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 9, 18, 1, 59, 30, 806, DateTimeKind.Local).AddTicks(7171),
+                            CreatedAt = new DateTime(2022, 9, 20, 13, 36, 13, 517, DateTimeKind.Local).AddTicks(8799),
                             DailyPrice = 200.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Petrol",
@@ -800,10 +800,22 @@ namespace RentACarProject.Migrations
                     b.Property<int>("CarId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DeletedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsMain")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("isDeleted")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
@@ -817,204 +829,320 @@ namespace RentACarProject.Migrations
                         {
                             Id = 1,
                             CarId = 1,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "bmw-m5.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 2,
                             CarId = 2,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "bmw-x5.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 3,
                             CarId = 3,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "chevrolet-aveo-2013.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 4,
                             CarId = 4,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "hyundai-accent-2014.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 5,
                             CarId = 5,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "hyundai - azera - 2013.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 6,
                             CarId = 6,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "hyundai - elantra - 2015.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 7,
                             CarId = 7,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "hyundai-h1-2014.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 8,
                             CarId = 8,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "hyundai-ix35-2014.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 9,
                             CarId = 9,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "hyundai-sonata-2013.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 10,
                             CarId = 10,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "hyundai-sonata-2017.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 11,
                             CarId = 11,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "kia-cerato-2014.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 12,
                             CarId = 12,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "kia-optima-2014.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 13,
                             CarId = 13,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "kia-rio-2014.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 14,
                             CarId = 14,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "kia-sorento-2013.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 15,
                             CarId = 15,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "kia-sportage-2014.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 16,
                             CarId = 16,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "lexus-570-2012.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 17,
                             CarId = 17,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "mercedes-g-class-2012.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 18,
                             CarId = 18,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "mercedes-g-class-2015.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 19,
                             CarId = 19,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "mercedes-s-class-2016.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 20,
                             CarId = 20,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "mercedes-v-class-2016.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 21,
                             CarId = 21,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "mitsubishi-L200-2013.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 22,
                             CarId = 22,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "mitsubishi-pajero.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 23,
                             CarId = 23,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "nissan-navara-2013.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 24,
                             CarId = 24,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "nissan-sunny-2014.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 25,
                             CarId = 25,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "toyota-camry-2013.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 26,
                             CarId = 26,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "toyota-land-cruiser-2014.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 27,
                             CarId = 27,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "toyota-land-cruiser-2018.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 28,
                             CarId = 28,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "toyota-prado-2015.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 29,
                             CarId = 29,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "toyota-prado-2018.jpg",
-                            IsMain = true
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         });
                 });
 
@@ -1025,8 +1153,20 @@ namespace RentACarProject.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DeletedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -1036,22 +1176,38 @@ namespace RentACarProject.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "black"
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "black",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 2,
-                            Name = "white"
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "white",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 3,
-                            Name = "brown"
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "brown",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         },
                         new
                         {
                             Id = 4,
-                            Name = "grey"
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "grey",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         });
                 });
 
@@ -1074,7 +1230,7 @@ namespace RentACarProject.Migrations
                     b.Property<DateTime>("RentDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("ReturnDate")
+                    b.Property<DateTime>("ReturnDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("UpdatedAt")

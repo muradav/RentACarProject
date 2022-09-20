@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using RentACarProject.Data;
 using RentACarProject.Dtos.ColorDtos;
 using RentACarProject.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,6 +30,7 @@ namespace RentACarProject.Controllers
         public async Task<IActionResult> GetOne(int id)
         {
             Color c = await _context.Colors
+                .Where(c => c.isDeleted == false)
                 .FirstOrDefaultAsync(c => c.Id == id);
 
             if (c == null) return NotFound();
@@ -41,11 +43,11 @@ namespace RentACarProject.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var query = _context.Colors.AsQueryable();
+            var query = _context.Colors.Where(c=>c.isDeleted==false);
 
             ColorListDto colorListDto = new ColorListDto();
 
-            colorListDto.Items = _mapper.Map<List<ColorReturnDto>>(query.ToList());
+            colorListDto.Items = _mapper.Map<List<ColorReturnDto>>(await query.ToListAsync());
             colorListDto.TotalCount = query.Count();
 
             return Ok(colorListDto);
@@ -88,7 +90,7 @@ namespace RentACarProject.Controllers
             return StatusCode(200, colorUpdateDto);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("remove/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             Color c = _context.Colors.FirstOrDefault(c => c.Id == id);
@@ -97,9 +99,32 @@ namespace RentACarProject.Controllers
                 return NotFound();
             }
 
-            _context.Colors.Remove(c);
+
+            c.isDeleted = true;
+            c.DeletedAt = DateTime.Now;
+
             await _context.SaveChangesAsync();
             return Ok($"Color {c.Name} Deleted Successfully.");
+        }
+
+        [HttpPatch("backup/{id}")]
+        public async Task<IActionResult> Return(int id)
+        {
+            Color c = _context.Colors.FirstOrDefault(c => c.Id == id);
+            if (c == null)
+            {
+                return NotFound();
+            }
+            if (c.isDeleted==false)
+            {
+                return Ok("Already Backed Up");
+            }
+
+            c.isDeleted = false;
+            c.CreatedAt = DateTime.Now;
+
+            await _context.SaveChangesAsync();
+            return Ok($"Color {c.Name} is Created Again Successfully.");
         }
     }
 }

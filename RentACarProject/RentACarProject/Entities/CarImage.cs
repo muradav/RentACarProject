@@ -1,8 +1,7 @@
 ﻿namespace RentACarProject.Entities
 {
-    public class CarImage
+    public class CarImage:BaseEntity
     {
-        public int Id { get; set; }
         public string ImageUrl { get; set; }
         public bool IsMain { get; set; }
 

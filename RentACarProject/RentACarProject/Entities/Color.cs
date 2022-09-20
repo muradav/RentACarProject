@@ -2,9 +2,8 @@
 
 namespace RentACarProject.Entities
 {
-    public class Color
+    public class Color:BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
 
 
