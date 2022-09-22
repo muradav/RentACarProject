@@ -40,7 +40,7 @@ namespace RentACarProject.Controllers
                 .Where(r => r.isDeleted == false)
                 .Include(r => r.User)
                 .Include(r => r.Car)
-                .ThenInclude(c=>c.Brand)
+                .ThenInclude(c => c.Brand)
                 .FirstOrDefaultAsync(r => r.Id == id);
 
             if (r == null) return NotFound();
@@ -62,7 +62,7 @@ namespace RentACarProject.Controllers
             RentalListDto rentalListDto = new RentalListDto();
 
             rentalListDto.Items = _mapper.Map<List<RentalReturnDto>>(await query.ToListAsync());
-            rentalListDto.TotalCount =await query.CountAsync();
+            rentalListDto.TotalCount = await query.CountAsync();
 
             return Ok(rentalListDto);
         }
@@ -76,13 +76,17 @@ namespace RentACarProject.Controllers
 
             if (userId == null) return Ok("Please login first");
 
-            var car = await _context.Cars.FirstOrDefaultAsync(c => c.Id == id);
+            var car = await _context.Cars
+                .Include(c => c.Brand)
+                .Include(c => c.Color)
+                .Include(c => c.CarImages)
+                .FirstOrDefaultAsync(c => c.Id == id);
 
             if (car == null) return NotFound();
 
             var rental = await _context.Rentals.FirstOrDefaultAsync(r => r.CarId == id);
 
-            if (rental!=null)
+            if (rental != null)
             {
                 var checkDate = rentalCreateDto.RentDate.InRange(rental.RentDate, rental.ReturnDate);
                 if (checkDate)
@@ -96,13 +100,41 @@ namespace RentACarProject.Controllers
                 UserId = userId,
                 CarId = id,
                 RentDate = rentalCreateDto.RentDate,
-                ReturnDate = rentalCreateDto.ReturnDate
+                ReturnDate = rentalCreateDto.ReturnDate,
+                CreatedAt=DateTime.Now
             };
 
             await _context.AddAsync(newRental);
             await _context.SaveChangesAsync();
 
             return Ok(newRental);
+        }
+
+        [HttpPut("update/{id}")]
+        public async Task<IActionResult> Update(int id, [FromForm] RentalUpdateDto rentalUpdateDto)
+        {
+            Rental r = _context.Rentals
+                .Where(r => r.isDeleted == false)
+                .Include(r => r.User)
+                .Include(r => r.Car)
+                .ThenInclude(r => r.Brand)
+                .FirstOrDefault(r => r.Id == id);
+            if (r == null)
+            {
+                return NotFound();
+            }
+            if (_context.Rentals.Any(r => r.RentDate == rentalUpdateDto.RentDate && r.Id != id))
+            {
+                return BadRequest();
+            }
+
+            r.RentDate = rentalUpdateDto.RentDate;
+            r.ReturnDate = rentalUpdateDto.ReturnDate;
+            r.UpdatedAt = DateTime.Now;
+
+            await _context.SaveChangesAsync();
+            RentalReturnDto rentalReturnDto = _mapper.Map<RentalReturnDto>(r);
+            return StatusCode(200, rentalReturnDto);
         }
     }
 }
