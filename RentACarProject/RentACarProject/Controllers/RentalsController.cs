@@ -123,10 +123,15 @@ namespace RentACarProject.Controllers
             {
                 return NotFound();
             }
-            if (_context.Rentals.Any(r => r.RentDate == rentalUpdateDto.RentDate && r.Id != id))
+            if (r != null)
             {
-                return BadRequest();
+                var checkDate = rentalUpdateDto.RentDate.InRange(r.RentDate, r.ReturnDate);
+                if (checkDate)
+                {
+                    return Ok($"Car is reserved from {r.RentDate.ToString("MM/dd/yyyy")} till {r.ReturnDate.ToString("MM/dd/yyyy")}");
+                }
             }
+            
 
             r.RentDate = rentalUpdateDto.RentDate;
             r.ReturnDate = rentalUpdateDto.ReturnDate;
@@ -136,5 +141,53 @@ namespace RentACarProject.Controllers
             RentalReturnDto rentalReturnDto = _mapper.Map<RentalReturnDto>(r);
             return StatusCode(200, rentalReturnDto);
         }
+
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Rental r =await _context.Rentals
+                .Where(r => r.isDeleted == false)
+                .FirstOrDefaultAsync(r => r.Id == id);
+            if (r==null) return NotFound();
+
+            r.isDeleted = true;
+
+            await _context.SaveChangesAsync();
+
+            return Ok("Deleted Successfully");
+        }
+
+        [HttpPatch("backup/{id}")]
+        public async Task<IActionResult> Return(int id)
+        {
+            Rental r = await _context.Rentals
+                .Where(r => r.isDeleted == true)
+                .FirstOrDefaultAsync(r => r.Id == id);
+            if (r == null) return NotFound();
+
+            r.isDeleted = false;
+
+            await _context.SaveChangesAsync();
+
+            return Ok("Backed Up Successfully");
+        }
+
+        [HttpGet("deletedRentals")]
+        public async Task<IActionResult> GetAllDeleted()
+        {
+            var query = _context.Rentals
+                .Where(r => r.isDeleted == true)
+                .Include(r => r.User)
+                .Include(r => r.Car)
+                .ThenInclude(c => c.Brand);
+
+            RentalListDto rentalListDto = new RentalListDto();
+
+            rentalListDto.Items = _mapper.Map<List<RentalReturnDto>>(await query.ToListAsync());
+            rentalListDto.TotalCount = await query.CountAsync();
+
+            return Ok(rentalListDto);
+        }
+
     }
 }
