@@ -1,0 +1,14 @@
+.header{
+   background-image: url("https://wallpaper.dog/large/262971.jpg");
+   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0px;
+  height: 700px;
+}
+
+.header-content{
+  padding-top: 150px;  
+}
+
+
