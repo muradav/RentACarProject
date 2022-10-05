@@ -5,6 +5,7 @@ import Header from "./Header"
 import Introduction from "./Introduction";
 import WhyUs from "./WhyUs";
 import ElectricCar from "./ElectricCar";
+import ScrollToTopButton from "./ScrollTopButton";
 
 function Home() {
     const [pageData, setPageData] = useState({});
@@ -13,11 +14,11 @@ function Home() {
   }, []);
   return (
     <div>
-      {/* <Header data={pageData.Header} /> */}
       <Header data={pageData.Header} />
       <Introduction />
       <ElectricCar />
       <WhyUs />
+      <ScrollToTopButton />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import ScrollToTopButton from "./ScrollTopButton";
 // import { MDBNavbar,MDBContainer,MDBBreadcrumb,MDBBreadcrumbItem,} from "mdb-react-ui-kit";
 import 'bootstrap/dist/css/bootstrap.css';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
@@ -81,6 +82,7 @@ function Contact() {
           </div>
         </div>
       </div>
+      <ScrollToTopButton />
     </div>
   );
 }

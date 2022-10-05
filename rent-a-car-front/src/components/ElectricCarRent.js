@@ -2,9 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import "./Rent.css";
-import ScrollToTopButton from "./ScrollTopButton";
 
-function Rent() {
+function ElectricCarRent() {
   return (
     <div>
       <div style={{ display: "block", width: 700, padding: 30 }}>
@@ -13,15 +12,15 @@ function Rent() {
             <NavLink to="/">Əsas Səhifə</NavLink>
           </Breadcrumb.Item>
           <Breadcrumb.Item>
-            <NavLink to="/rent" active>
-              Avtomobil icarəsi
+            <NavLink to="/electicCarRent" active>
+              Elektrik avtomobil icarəsi
             </NavLink>
           </Breadcrumb.Item>
         </Breadcrumb>
       </div>
       <div className="container">
         <h2 className="container text-light bg-dark mb-5 pt-2 pb-2 text-center">
-          Avtomobil icarəsi
+        Elektrik avtomobil icarəsi
         </h2>
         <div className="row mb-5">
           <div className="col-sm-4 card-col">
@@ -394,9 +393,8 @@ function Rent() {
           </div>
         </div>
       </div>
-      <ScrollToTopButton />
     </div>
   );
 }
 
-export default Rent;
+export default ElectricCarRent;
