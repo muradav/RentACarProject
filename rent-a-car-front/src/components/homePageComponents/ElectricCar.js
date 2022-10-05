@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import ScrollToTopButton from "./ScrollTopButton";
+import ScrollToTopButton from "../ScrollTopButton";
 import "./ElectricCar.css";
 
 function ElectricCar() {
