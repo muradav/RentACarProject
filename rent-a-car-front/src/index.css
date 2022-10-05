@@ -8,6 +8,7 @@ body {
   background-image: url(https://m5.paperblog.com/i/282/2821610/free-web-backgrounds-free-60-huge-backgrounds-L-T7PvUq.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-x: hidden;
   background-attachment: fixed;
 }
 

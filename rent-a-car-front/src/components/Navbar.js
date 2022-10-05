@@ -1,61 +1,42 @@
+import React from "react";
+import {NavLink } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../img/logo.png";
+import "./Navbar.css"
 
 function Header() {
-  const myStyle = {
+  const brandStyle = {
     height: "55px",
     top: "10px",
   };
   return (
-    <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home" className="brandName">
-            <img style={myStyle} src={logo} alt={"logo"} />
+            <img style={brandStyle} src={logo} alt={"logo"} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link className="text-light fw-bold" href="#features">
+            <Nav className="nav-links me-auto">
+              <NavLink className="text-light fw-bold text-decoration-none" to="/">
                 Əsas Səhifə
-              </Nav.Link>
-              {/* <NavDropdown
-                className="fw-bold"
-                title={
-                  <span className="text-light">
-                    Kirayə maşınlar
-                  </span>
-                }
-                menuVariant="dark"
-                id="collasible-nav-dropdown"
-              >
-                <NavDropdown.Item href="#action/3.1">
-                Ekonom klass maşınların icarəsi
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                Biznes klass maşınların icarəsi
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                VİP klass maşınların icarəsi
-                </NavDropdown.Item>
-              </NavDropdown> */}
-              <Nav.Link className="text-light fw-bold" href="#pricing">
+              </NavLink>
+              <NavLink className="text-light fw-bold text-decoration-none" to="/rent">
               Avtomobil icarəsi
-              </Nav.Link>
-              <Nav.Link className="text-light fw-bold" href="#pricing">
+              </NavLink>
+              <NavLink className="text-light fw-bold text-decoration-none" to="/blog">
                 Bloq
-              </Nav.Link>
-              <Nav.Link className="text-light fw-bold" href="#pricing">
+              </NavLink>
+              <NavLink className="text-light fw-bold text-decoration-none" to="/about">
                 Haqqımızda
-              </Nav.Link>
-              <Nav.Link className="text-light fw-bold" href="#pricing">
+              </NavLink>
+              <NavLink className="text-light fw-bold text-decoration-none" to="/contact">
                 Əlaqə
-              </Nav.Link>
+              </NavLink>
             </Nav>
             <Nav>
               <Nav.Link className="text-light fw-bold" href="#signIn">
@@ -79,7 +60,6 @@ function Header() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </div>
   );
 }
 

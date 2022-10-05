@@ -1,0 +1,12 @@
+ul{
+    list-style: none;
+    padding-top: 35px;
+    font-size: 23px;
+}
+
+
+nav a{
+    text-decoration: none;
+    color: #f8f8fa;
+    font-size: large;
+}

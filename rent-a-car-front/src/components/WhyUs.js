@@ -1,3 +1,4 @@
+import React from 'react';
 import { MdOutlineAttachMoney } from 'react-icons/md';
 import { FiSettings } from 'react-icons/fi';
 import { AiOutlineLike } from 'react-icons/ai';
@@ -12,7 +13,8 @@ function WhyUs() {
       id="introCont"
       style={{ backgroundColor: "transparent" }}
     >
-      <h2 className="container text-light bg-dark pt-2">BİZİM ƏSAS ÜSTÜNLÜKLƏRİMİZ</h2>
+        <div className='mb-3'><hr className="text-light" /></div>
+      <h2 className="container text-light bg-dark pt-2 pb-2">BİZİM ƏSAS ÜSTÜNLÜKLƏRİMİZ</h2>
       <div className="row pt-3">
         <div className="col-4">
             <div style={{fontSize:"80px", color:"white"} }>

@@ -1,0 +1,3 @@
+.nav-links a:not(:first-child){
+    margin-left: 7px;
+}
