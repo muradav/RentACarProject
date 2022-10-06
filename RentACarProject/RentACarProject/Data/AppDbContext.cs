@@ -581,7 +581,7 @@ namespace RentACarProject.Data
                 new CarImage
                 {
                     Id = 5,
-                    ImageUrl = "hyundai - azera - 2013.jpg",
+                    ImageUrl = "hyundai-azera-2013.jpg",
                     CarId = 5,
                     IsMain = true
                 }); 
@@ -589,7 +589,7 @@ namespace RentACarProject.Data
                 new CarImage
                 {
                     Id = 6,
-                    ImageUrl = "hyundai - elantra - 2015.jpg",
+                    ImageUrl = "hyundai-elantra-2015.jpg",
                     CarId = 6,
                     IsMain = true
                 });

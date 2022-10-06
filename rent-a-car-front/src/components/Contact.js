@@ -46,13 +46,14 @@ function Contact() {
           </h2>
           <div className="col-6">
             <Iframe
-              url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.4284901456376!2d49.85175681489334!3d40.377194965967796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d079efb5163%3A0xc20aa51a5f0b5e01!2sCode%20Academy!5e0!3m2!1sen!2s!4v1664827538952!5m2!1sen!2s"
+              url={"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.4284901456376!2d49.85175681489334!3d40.377194965967796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d079efb5163%3A0xc20aa51a5f0b5e01!2sCode%20Academy!5e0!3m2!1sen!2s!4v1664827538952!5m2!1sen!2s"}
               width="600px"
               height="300px"
               id=""
               className=""
               display="block"
               position="relative"
+              allowfullscreen="true"
             />
           </div>
           <div className="col-1"></div>

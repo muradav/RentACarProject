@@ -39,6 +39,16 @@ namespace RentACarProject
                     .AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<Startup>())
                     .AddNewtonsoftJson(options =>
                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "AllowOrigin",
+                    builder =>
+                    {
+                        builder.WithOrigins("https://localhost:44352", "http://localhost:3001")
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod();
+                    });
+            });
             services.AddDbContext<AppDbContext>(opt =>
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
@@ -102,6 +112,7 @@ namespace RentACarProject
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors("AllowOrigin");
 
             app.UseHttpsRedirection();
 
