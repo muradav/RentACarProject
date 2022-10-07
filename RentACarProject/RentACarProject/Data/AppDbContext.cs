@@ -557,7 +557,7 @@ namespace RentACarProject.Data
                 new CarImage
                 {
                     Id = 2,
-                    ImageUrl = "bmw-x5.jpg",
+                    ImageUrl = "bmw-x5.png",
                     CarId = 2,
                     IsMain = true
                 });

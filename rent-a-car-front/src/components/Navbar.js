@@ -5,7 +5,9 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from "../img/logo.png";
+import account from "../img/account.png";
 import "./Navbar.css"
 
 function Header() {
@@ -38,14 +40,14 @@ function Header() {
                 Əlaqə
               </NavLink>
             </Nav>
-            <Nav>
-              <Nav.Link className="text-light fw-bold" href="#signIn">
+            {/* <Nav>
+              <NavLink className="text-light fw-bold mx-2" to="/signIn">
                 Daxil Ol
-              </Nav.Link>
-              <Nav.Link className="text-light fw-bold" href="#signUp">
+              </NavLink>
+              <NavLink className="text-light fw-bold mx-2" to="/signUp">
                 Qeydiyyat
-              </Nav.Link>
-            </Nav>
+              </NavLink>
+            </Nav> */}
             <Form className="d-flex">
               <Form.Control
                 type="search"
@@ -57,6 +59,21 @@ function Header() {
                 Axtar
               </Button>
             </Form>
+            <Nav>
+            <NavDropdown
+              id="nav-dropdown-dark-example"
+              title={<img style={{height:"35px", paddingLeft:"20px"}} src={account} alt={"account"} />}
+              menuVariant="dark"
+            >
+              <NavDropdown.Item>
+                <NavLink to="/signIn" className="text-white">Daxil Ol</NavLink>
+                </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item>
+              <NavLink to="/register" className="text-white">Qeydiyyat</NavLink>
+                </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>

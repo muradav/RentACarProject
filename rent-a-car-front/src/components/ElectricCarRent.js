@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
-import "./Rent.css";
+import "./rentPage/Rent.css";
 
 function ElectricCarRent() {
   return (

@@ -13,6 +13,8 @@ import Blog from "./components/Blog";
 import Rent from "./components/Rent";
 import RentDetail from "./components/RentDetail";
 import ElectricCarRent from "./components/ElectricCarRent";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 function App() {
   const [pageData, setPageData] = useState({});
@@ -31,6 +33,8 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/signIn" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </ScrollToTop>
       <Subscribe data={pageData.Subscribe} />

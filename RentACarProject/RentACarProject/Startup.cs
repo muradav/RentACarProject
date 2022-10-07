@@ -44,7 +44,7 @@ namespace RentACarProject
                 options.AddPolicy(name: "AllowOrigin",
                     builder =>
                     {
-                        builder.WithOrigins("https://localhost:44352", "http://localhost:3001")
+                        builder.WithOrigins("https://localhost:44352", "http://localhost:3000")
                                             .AllowAnyHeader()
                                             .AllowAnyMethod();
                     });

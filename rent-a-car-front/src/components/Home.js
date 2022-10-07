@@ -1,10 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import JsonData from "../data/data.json";
-import Header from "./homePageComponents/Header"
-import Introduction from "./homePageComponents/Introduction";
-import WhyUs from "./homePageComponents/WhyUs";
-import ElectricCar from "./homePageComponents/ElectricCar";
+import Header from "./homePage/Header"
+import Introduction from "./homePage/Introduction";
+import WhyUs from "./homePage/WhyUs";
+import ElectricCar from "./homePage/ElectricCar";
 import ScrollToTopButton from "./ScrollTopButton";
 
 function Home() {

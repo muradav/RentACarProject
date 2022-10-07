@@ -44,7 +44,9 @@ namespace RentACarProject.Controllers
                 UserName = registerDto.Username,
                 Name = registerDto.Name,
                 Surname = registerDto.Surname,
-                Email = registerDto.Email
+                Email = registerDto.Email,
+                PhoneNumber= registerDto.PhoneNumber
+
             };
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);

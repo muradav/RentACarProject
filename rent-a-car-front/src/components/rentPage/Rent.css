@@ -1,0 +1,54 @@
+
+@media screen and (max-width:600px){
+    .col-sm-4{
+        margin-bottom: 50px;
+    }
+}
+
+.card{
+    transition: 0.5s all;
+	width: 310px;
+	border-radius: 10px;
+}
+
+.card:hover {
+    transition: all 0.5s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -30px;
+    border: 1px solid #cccccc;
+  }
+
+.card-img-top{
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+span.text-muted{
+	font-size: 17px;
+}
+
+h4.text-muted{
+	font-size: 17px;
+}
+
+.mid{
+	background: #ECEDF1;
+}
+
+.card-col{
+    position: relative;
+}
+
+.rent-btn{
+    transition: 0.5s all;
+    background-color: #212529;
+    height: 40px;
+    border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+    visibility: hidden;
+}
+
+.card:hover .rent-btn{
+    transition: 0.5s all;
+    visibility: visible;
+}
