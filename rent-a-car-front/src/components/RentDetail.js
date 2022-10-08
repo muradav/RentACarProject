@@ -65,14 +65,14 @@ function RentDetail() {
                   controlId="renterEmail"
                 >
                   <Form.Label>Elektron poçt ünvanı</Form.Label>
-                  <Form.Control type="text" placeholder="Ad" />
+                  <Form.Control type="text" placeholder="E-poçt" />
                 </Form.Group>
                 <Form.Group
                   className="mb-3 col-sm-6"
                   controlId="renterPhone"
                 >
                   <Form.Label>Telefon Nömrəsi</Form.Label>
-                  <Form.Control type="text" placeholder="Soyad" />
+                  <Form.Control type="text" placeholder="Telefon Nömrəsi" />
                 </Form.Group>
               </Row>
               <h3>İcarə Detalları</h3>
@@ -89,7 +89,7 @@ function RentDetail() {
                   controlId="rentPrice"
                 >
                   <Form.Label>Günlük İcarə Haqqı</Form.Label>
-                  <Form.Control type="text" placeholder="Soyad" />
+                  <Form.Control type="text" placeholder="İcarə Haqqı" />
                 </Form.Group>
                 <div className="col-sm-6" style={{paddingLeft:"130px"}}>
                 <DayPicker

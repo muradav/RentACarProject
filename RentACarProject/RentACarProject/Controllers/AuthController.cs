@@ -55,14 +55,14 @@ namespace RentACarProject.Controllers
                 return BadRequest(result.Errors);
             }
 
-            result = await _userManager.AddToRoleAsync(user, "Admin");
+            result = await _userManager.AddToRoleAsync(user, "Customer");
 
             if (!result.Succeeded)
             {
                 return BadRequest(result.Errors);
             }
 
-            return Ok("User registiried succesfully");
+            return Ok(user);
         }
 
         [HttpPost("login")]

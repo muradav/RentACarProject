@@ -1,8 +1,61 @@
-import React from "react";
-import Form from "react-bootstrap/Form";
-
+import React, { useState } from "react";
+import { createBrowserRouter, useNavigate } from "react-router-dom";
 
 function Register() {
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [checkPassword, setCheckPassword] = useState("");
+
+  function checkConfirmPassword(e) {
+    setCheckPassword(e.target.value);
+    const password = document.querySelector("input[name=password]");
+    const confirm = document.querySelector("input[name=confirmPass]");
+    if (confirm.value === password.value) {
+      confirm.setCustomValidity("");
+    } else {
+      confirm.setCustomValidity("Zəhmət olmasa şifrəni düzgün daxil edin");
+    }
+  }
+
+  async function signUp(e) {
+    e.preventDefault();
+
+    let dataToSubmit = {
+      name,
+      surname,
+      username,
+      email,
+      phoneNumber,
+      password,
+      checkPassword,
+    };
+
+    console.log(dataToSubmit);
+
+    await fetch("https://localhost:44352/api/auth/register", {
+      method: "POST",
+      body: JSON.stringify(dataToSubmit),
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        if (res.ok && res.status === 200) {
+          return res.json().then(data=>{
+            window.localStorage.setItem("user",JSON.stringify(data));
+            console.log(JSON.parse(window.localStorage.getItem("user")));
+          });
+        }
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  }
+
   return (
     <>
       <div className="container">
@@ -16,56 +69,99 @@ function Register() {
                 <h2 className="text-uppercase text-center mb-5">
                   Hesab yaradın
                 </h2>
-                <Form.Group
-                  className="mb-3 col-sm-12"
-                  controlId="name"
-                >
-                  <Form.Label>Ad</Form.Label>
-                  <Form.Control type="text" />
-                </Form.Group>
-                <Form.Group
-                  className="mb-3 col-sm-12"
-                  controlId="surname"
-                >
-                  <Form.Label>Soyad</Form.Label>
-                  <Form.Control type="text" />
-                </Form.Group>
-                <Form.Group
-                  className="mb-3 col-sm-12"
-                  controlId="username"
-                >
-                  <Form.Label>İstifadəçi Adı</Form.Label>
-                  <Form.Control type="text" />
-                </Form.Group>
-                <Form.Group
-                  className="mb-3 col-sm-12"
-                  controlId="email"
-                >
-                  <Form.Label>Elektron poçt ünvanı</Form.Label>
-                  <Form.Control type="email" />
-                </Form.Group>
-                <Form.Group
-                  className="mb-3 col-sm-12"
-                  controlId="rentCarName"
-                >
-                  <Form.Label>Telefon Nömrəsi</Form.Label>
-                  <Form.Control type="text" />
-                </Form.Group>
-                <Form.Group
-                  className="mb-3 col-sm-12"
-                  controlId="password"
-                >
-                  <Form.Label>Şifrə</Form.Label>
-                  <Form.Control type="text" />
-                </Form.Group>
-                <Form.Group
-                  className="mb-3 col-sm-12"
-                  controlId="repeatPass"
-                >
-                  <Form.Label>Təkrar Şifrə</Form.Label>
-                  <Form.Control type="text" />
-                </Form.Group>
-                {/* <div className="d-flex flex-row justify-content-center mb-4">
+                <form className="row" method="post" action="#">
+                  <div className="mb-3 col-sm-6">
+                    <label for="name" className="form-label">
+                      Ad
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="name"
+                      value={name}
+                      name="name"
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-3 col-sm-6">
+                    <label for="surname" className="form-label">
+                      Soyad
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="Surname"
+                      value={surname}
+                      name="surname"
+                      onChange={(e) => setSurname(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-3 col-sm-6">
+                    <label for="username" className="form-label">
+                      İstifadəçi Adı
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="username"
+                      value={username}
+                      name="username"
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-3 col-sm-6">
+                    <label for="email" className="form-label">
+                      Elektron poçt ünvanı
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="email"
+                      value={email}
+                      name="email"
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-3 col-sm-6">
+                    <label for="phone" className="form-label">
+                      Telefon Nömrəsi
+                    </label>
+                    <input
+                      type="tel"
+                      className="form-control"
+                      id="phoneNumber"
+                      value={phoneNumber}
+                      name="phoneNumber"
+                      onChange={(e) => setPhoneNumber(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-3 col-sm-6">
+                    <label for="password" className="form-label">
+                      Şifrə
+                    </label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="password"
+                      value={password}
+                      name="password"
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-3 col-sm-6">
+                    <label for="password" className="form-label">
+                      Təkrar Şifrə
+                    </label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="confirmPass"
+                      value={checkPassword}
+                      name="confirmPass"
+                      onChange={checkConfirmPassword}
+                    />
+                  </div>
+                  {/* <div className="d-flex flex-row justify-content-center mb-4">
                   <input
                     type="checkbox"
                     name="flexCheck"
@@ -73,14 +169,16 @@ function Register() {
                     label="I agree all statements in Terms of service"
                   />
                 </div> */}
-                <button
-                outline
-                className="mt-4 px-5 btn btn-dark"
-                color="white"
-                size="lg"
-              >
-                Hesab Yarat
-              </button>
+                  <button
+                    className="mt-4 px-5 btn btn-dark"
+                    color="white"
+                    size="lg"
+                    type="submit"
+                    onClick={signUp}
+                  >
+                    Hesab Yarat
+                  </button>
+                </form>
               </div>
             </div>
           </div>
