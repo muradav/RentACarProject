@@ -12,15 +12,17 @@ function RentCard() {
           return res.json();
         }
       })
+      .then(res=> console.log(res))
       .then((data) => setCars(data.items))
       .catch((err) => console.log(err));
+
   }, []);
 
   // console.log(cars);
 
-  const getCarId = (ev) => {
-    console.log(ev.currentTarget.id);
-  };
+  // const getCarId = (ev) => {
+  //   console.log(ev.currentTarget.id);
+  // };
 
   return (
     <div className="row mb-5">
@@ -90,7 +92,7 @@ function RentCard() {
                 </div>
                 <div className="rent-btn mt-3 pt-2 text-center">
                   <NavLink
-                    onClick={getCarId}
+                    // onClick={getCarId}
                     id={car.id}
                     className="text-decoration-none text-light"
                     to="/rentDetails"

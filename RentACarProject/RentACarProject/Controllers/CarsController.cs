@@ -7,7 +7,7 @@ using RentACarProject.Data;
 using RentACarProject.Dtos.CarDtos;
 using RentACarProject.Dtos.CarImageDtos;
 using RentACarProject.Entities;
-using RentACarProject.Extentions;
+using RentACarProject.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;

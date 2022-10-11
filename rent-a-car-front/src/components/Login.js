@@ -1,38 +1,43 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { createBrowserRouter, Navigate, NavLink, useNavigate } from "react-router-dom";
 
 function Login() {
-
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+//  const history = createBrowserRouter();
+ const navigate=useNavigate();
 
-  async function signIn (e) {
+  async function signIn(e) {
     e.preventDefault();
 
     let dataToLogin = {
-        username,
-        password
-    }
+      username,
+      password,
+    };
 
-    console.log(dataToLogin)
+    console.log(dataToLogin);
 
-     await fetch("https://localhost:44352/api/auth/login", {
-        method: 'POST',
-        body: JSON.stringify(dataToLogin),
-        headers:{
-            'Content-type': 'application/json',
-            'Accept': 'application/json'
-
-        }
+    await fetch("https://localhost:44352/api/auth/login", {
+      method: "POST",
+      body: JSON.stringify(dataToLogin),
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+      },
     })
-    .then((res) => {
+      .then((res) => {
         if (res.ok && res.status === 200) {
           return res.json();
         }
       })
-      .then(res => console.log(res))
+      .then((res) => console.log(res))
       .catch((err) => console.log(err))
+  }
+
+  function routeChange(e){
+
+  e.preventDefault();
+  window.history.pushState({}, undefined, "/");
   }
 
   return (
@@ -91,7 +96,10 @@ function Login() {
                   className="mx-4 px-5 btn btn-dark"
                   color="white"
                   size="lg"
-                  onClick={signIn}
+                  onClick={()=>{
+                    signIn();
+                    routeChange();
+                  }}
                 >
                   Daxil Ol
                 </button>
