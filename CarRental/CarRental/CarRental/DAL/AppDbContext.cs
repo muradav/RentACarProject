@@ -1,7 +1,6 @@
 ﻿using CarRental.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using RentACarProject.Models;
 using System;
 
 namespace CarRental.DAL
@@ -19,6 +18,9 @@ namespace CarRental.DAL
             public DbSet<Color> Colors { get; set; }
             public DbSet<Rental> Rentals { get; set; }
             public DbSet<Bio> Bios { get; set; }
+            public DbSet<Team> Teams { get; set; }
+            public DbSet<About> About { get; set; }
+
 
 
         #region Data Seeding
@@ -26,7 +28,7 @@ namespace CarRental.DAL
             {
                 base.OnModelCreating(builder);
 
-                #region Brand
+            #region Brand
 
                 builder.Entity<Brand>().HasData(
                     new Brand
@@ -100,50 +102,70 @@ namespace CarRental.DAL
                         ImageUrl = "lexus.png",
                         CreatedAt = DateTime.Now
                     });
+                builder.Entity<Brand>().HasData(
+                    new Brand
+                    {
+                        Id = 10,
+                        Name = "Tesla",
+                        ImageUrl = "tesla.png",
+                        CreatedAt = DateTime.Now
+                    });
 
 
 
-                #endregion
+            #endregion
 
-                #region Color
+            #region Color
 
-                builder.Entity<Color>().HasData(
+            builder.Entity<Color>().HasData(
                     new Color
                     {
                         Id = 1,
-                        Name = "black"
+                        Name = "qara"
                     });
                 builder.Entity<Color>().HasData(
                     new Color
                     {
                         Id = 2,
-                        Name = "white"
+                        Name = "ağ"
                     });
                 builder.Entity<Color>().HasData(
                     new Color
                     {
                         Id = 3,
-                        Name = "brown"
+                        Name = "qəhvəyi"
                     });
                 builder.Entity<Color>().HasData(
                     new Color
                     {
                         Id = 4,
-                        Name = "grey"
+                        Name = "boz"
+                    });
+                builder.Entity<Color>().HasData(
+                    new Color
+                    {
+                        Id = 5,
+                        Name = "qırmızı"
+                    });
+                builder.Entity<Color>().HasData(
+                    new Color
+                    {
+                        Id = 6,
+                        Name = "mavi"
                     });
 
-                #endregion
+            #endregion
 
-                #region Car
+            #region Car
 
-                builder.Entity<Car>().HasData(
+            builder.Entity<Car>().HasData(
                     new Car
                     {
                         Id = 1,
                         Name = "M5",
                         ModelYear = 2012,
                         DailyPrice = 250,
-                        FuelType = "Petrol",
+                        FuelType = "Benzin",
                         TransmissionType = "Auto",
                         PassengerCount = 5,
                         BrandId = 4,
@@ -157,7 +179,7 @@ namespace CarRental.DAL
                         Name = "X5",
                         ModelYear = 2011,
                         DailyPrice = 200,
-                        FuelType = "Petrol",
+                        FuelType = "Benzin",
                         TransmissionType = "Auto",
                         PassengerCount = 5,
                         BrandId = 4,
@@ -171,7 +193,7 @@ namespace CarRental.DAL
                         Name = "Aveo",
                         ModelYear = 2013,
                         DailyPrice = 50,
-                        FuelType = "Petrol",
+                        FuelType = "Qaz",
                         TransmissionType = "Manual",
                         PassengerCount = 5,
                         BrandId = 8,
@@ -185,7 +207,7 @@ namespace CarRental.DAL
                         Name = "Accent",
                         ModelYear = 2014,
                         DailyPrice = 50,
-                        FuelType = "Petrol",
+                        FuelType = "Dizel",
                         TransmissionType = "Manual",
                         PassengerCount = 5,
                         BrandId = 2,
@@ -199,7 +221,7 @@ namespace CarRental.DAL
                         Name = "Azera",
                         ModelYear = 2013,
                         DailyPrice = 85,
-                        FuelType = "Petrol",
+                        FuelType = "Benzin",
                         TransmissionType = "Auto",
                         PassengerCount = 5,
                         BrandId = 2,
@@ -213,7 +235,7 @@ namespace CarRental.DAL
                         Name = "Elantra",
                         ModelYear = 2015,
                         DailyPrice = 55,
-                        FuelType = "Petrol",
+                        FuelType = "Benzin",
                         TransmissionType = "Auto",
                         PassengerCount = 5,
                         BrandId = 2,
@@ -227,7 +249,7 @@ namespace CarRental.DAL
                         Name = "H1",
                         ModelYear = 2014,
                         DailyPrice = 140,
-                        FuelType = "Diesel",
+                        FuelType = "Dizel",
                         TransmissionType = "Auto",
                         PassengerCount = 9,
                         BrandId = 2,
@@ -241,7 +263,7 @@ namespace CarRental.DAL
                         Name = "Ix35",
                         ModelYear = 2014,
                         DailyPrice = 65,
-                        FuelType = "Petrol",
+                        FuelType = "Benzin",
                         TransmissionType = "Auto",
                         PassengerCount = 5,
                         BrandId = 2,
@@ -255,7 +277,7 @@ namespace CarRental.DAL
                         Name = "Sonata",
                         ModelYear = 2013,
                         DailyPrice = 70,
-                        FuelType = "Diesel",
+                        FuelType = "Dizel",
                         TransmissionType = "Auto",
                         PassengerCount = 5,
                         BrandId = 2,
@@ -269,7 +291,7 @@ namespace CarRental.DAL
                         Name = "Sonata",
                         ModelYear = 2017,
                         DailyPrice = 75,
-                        FuelType = "Petrol",
+                        FuelType = "Benzin",
                         TransmissionType = "Auto",
                         PassengerCount = 5,
                         BrandId = 2,
@@ -283,7 +305,7 @@ namespace CarRental.DAL
                         Name = "Cerato",
                         ModelYear = 2014,
                         DailyPrice = 55,
-                        FuelType = "Petrol",
+                        FuelType = "Benzin",
                         TransmissionType = "Auto",
                         PassengerCount = 5,
                         BrandId = 7,
@@ -297,7 +319,7 @@ namespace CarRental.DAL
                         Name = "Optima",
                         ModelYear = 2014,
                         DailyPrice = 75,
-                        FuelType = "Petrol",
+                        FuelType = "Benzin",
                         TransmissionType = "Auto",
                         PassengerCount = 5,
                         BrandId = 7,
@@ -311,7 +333,7 @@ namespace CarRental.DAL
                         Name = "Rio",
                         ModelYear = 2014,
                         DailyPrice = 50,
-                        FuelType = "Diesel",
+                        FuelType = "Dizel",
                         TransmissionType = "Manual",
                         PassengerCount = 5,
                         BrandId = 7,
@@ -325,7 +347,7 @@ namespace CarRental.DAL
                         Name = "Sorento",
                         ModelYear = 2013,
                         DailyPrice = 90,
-                        FuelType = "Diesel",
+                        FuelType = "Dizel",
                         TransmissionType = "Auto",
                         PassengerCount = 7,
                         BrandId = 7,
@@ -339,7 +361,7 @@ namespace CarRental.DAL
                         Name = "Sportage",
                         ModelYear = 2014,
                         DailyPrice = 65,
-                        FuelType = "Petrol",
+                        FuelType = "Dizel",
                         TransmissionType = "Auto",
                         PassengerCount = 5,
                         BrandId = 7,
@@ -353,7 +375,7 @@ namespace CarRental.DAL
                         Name = "LX570",
                         ModelYear = 2012,
                         DailyPrice = 200,
-                        FuelType = "Petrol",
+                        FuelType = "Benzin",
                         TransmissionType = "Auto",
                         PassengerCount = 7,
                         BrandId = 9,
@@ -367,7 +389,7 @@ namespace CarRental.DAL
                         Name = "G-class",
                         ModelYear = 2012,
                         DailyPrice = 350,
-                        FuelType = "Petrol",
+                        FuelType = "Benzin",
                         TransmissionType = "Auto",
                         PassengerCount = 5,
                         BrandId = 1,
@@ -381,7 +403,7 @@ namespace CarRental.DAL
                         Name = "G-class",
                         ModelYear = 2015,
                         DailyPrice = 400,
-                        FuelType = "Petrol",
+                        FuelType = "Benzin",
                         TransmissionType = "Auto",
                         PassengerCount = 5,
                         BrandId = 1,
@@ -395,7 +417,7 @@ namespace CarRental.DAL
                         Name = "S-class",
                         ModelYear = 2016,
                         DailyPrice = 350,
-                        FuelType = "Diesel",
+                        FuelType = "Dizel",
                         TransmissionType = "Auto",
                         PassengerCount = 4,
                         BrandId = 1,
@@ -409,7 +431,7 @@ namespace CarRental.DAL
                         Name = "V-class",
                         ModelYear = 2016,
                         DailyPrice = 450,
-                        FuelType = "Diesel",
+                        FuelType = "Dizel",
                         TransmissionType = "Auto",
                         PassengerCount = 6,
                         BrandId = 1,
@@ -423,7 +445,7 @@ namespace CarRental.DAL
                        Name = "L200",
                        ModelYear = 2013,
                        DailyPrice = 80,
-                       FuelType = "Diesel",
+                       FuelType = "Dizel",
                        TransmissionType = "Manual",
                        PassengerCount = 5,
                        BrandId = 6,
@@ -437,7 +459,7 @@ namespace CarRental.DAL
                        Name = "Pajero",
                        ModelYear = 2013,
                        DailyPrice = 85,
-                       FuelType = "Petrol",
+                       FuelType = "Benzin",
                        TransmissionType = "Auto",
                        PassengerCount = 7,
                        BrandId = 6,
@@ -451,7 +473,7 @@ namespace CarRental.DAL
                        Name = "Navara",
                        ModelYear = 2013,
                        DailyPrice = 90,
-                       FuelType = "Diesel",
+                       FuelType = "Dizel",
                        TransmissionType = "Manual",
                        PassengerCount = 5,
                        BrandId = 5,
@@ -465,7 +487,7 @@ namespace CarRental.DAL
                        Name = "Sunny",
                        ModelYear = 2014,
                        DailyPrice = 50,
-                       FuelType = "Petrol",
+                       FuelType = "Benzin",
                        TransmissionType = "Manual",
                        PassengerCount = 5,
                        BrandId = 5,
@@ -479,7 +501,7 @@ namespace CarRental.DAL
                        Name = "Camry",
                        ModelYear = 2013,
                        DailyPrice = 90,
-                       FuelType = "Petrol",
+                       FuelType = "Benzin",
                        TransmissionType = "Auto",
                        PassengerCount = 5,
                        BrandId = 3,
@@ -493,7 +515,7 @@ namespace CarRental.DAL
                        Name = "Land Cruiser",
                        ModelYear = 2014,
                        DailyPrice = 160,
-                       FuelType = "Petrol",
+                       FuelType = "Benzin",
                        TransmissionType = "Auto",
                        PassengerCount = 7,
                        BrandId = 3,
@@ -507,7 +529,7 @@ namespace CarRental.DAL
                        Name = "Land Cruiser",
                        ModelYear = 2018,
                        DailyPrice = 300,
-                       FuelType = "Petrol",
+                       FuelType = "Benzin",
                        TransmissionType = "Auto",
                        PassengerCount = 7,
                        BrandId = 3,
@@ -521,7 +543,7 @@ namespace CarRental.DAL
                        Name = "Prado",
                        ModelYear = 2015,
                        DailyPrice = 120,
-                       FuelType = "Diesel",
+                       FuelType = "Dizel",
                        TransmissionType = "Auto",
                        PassengerCount = 7,
                        BrandId = 3,
@@ -535,19 +557,75 @@ namespace CarRental.DAL
                        Name = "Prado",
                        ModelYear = 2018,
                        DailyPrice = 200,
-                       FuelType = "Petrol",
+                       FuelType = "Benzin",
                        TransmissionType = "Auto",
                        PassengerCount = 7,
                        BrandId = 3,
                        ColorId = 2,
                        CreatedAt = DateTime.Now
                    });
+                builder.Entity<Car>().HasData(
+                   new Car
+                   {
+                       Id = 30,
+                       Name = "Tesla X",
+                       ModelYear = 2016,
+                       DailyPrice = 250,
+                       FuelType = "Elektrik",
+                       TransmissionType = "Auto",
+                       PassengerCount = 5,
+                       BrandId = 10,
+                       ColorId = 2,
+                       CreatedAt = DateTime.Now
+                   });
+                builder.Entity<Car>().HasData(
+                   new Car
+                   {
+                       Id = 31,
+                       Name = "Tesla S",
+                       ModelYear = 2018,
+                       DailyPrice = 270,
+                       FuelType = "Elektrik",
+                       TransmissionType = "Auto",
+                       PassengerCount = 4,
+                       BrandId = 10,
+                       ColorId = 5,
+                       CreatedAt = DateTime.Now
+                   });
+             builder.Entity<Car>().HasData(
+                   new Car
+                   {
+                       Id = 32,
+                       Name = "Tesla 3",
+                       ModelYear = 2017,
+                       DailyPrice = 250,
+                       FuelType = "Elektrik",
+                       TransmissionType = "Auto",
+                       PassengerCount = 4,
+                       BrandId = 10,
+                       ColorId = 4,
+                       CreatedAt = DateTime.Now
+                   });
+                builder.Entity<Car>().HasData(
+                   new Car
+                   {
+                       Id = 33,
+                       Name = "Leaf",
+                       ModelYear = 2017,
+                       DailyPrice = 70,
+                       FuelType = "Elektrik",
+                       TransmissionType = "Auto",
+                       PassengerCount = 5,
+                       BrandId = 5,
+                       ColorId = 6,
+                       CreatedAt = DateTime.Now
+                   });
 
-                #endregion
+            #endregion
 
-                #region CarImage
+            #region CarImage
 
-                builder.Entity<CarImage>().HasData(
+            builder.Entity<CarImage>().HasData(
                     new CarImage
                     {
                         Id = 1,
@@ -779,6 +857,38 @@ namespace CarRental.DAL
                        CarId = 29,
                        IsMain = true
                    });
+                builder.Entity<CarImage>().HasData(
+                   new CarImage
+                   {
+                       Id = 30,
+                       ImageUrl = "tesla-x-2016.png",
+                       CarId = 30,
+                       IsMain = true
+                   });
+                builder.Entity<CarImage>().HasData(
+                   new CarImage
+                   {
+                       Id = 31,
+                       ImageUrl = "tesla-s-2018.png",
+                       CarId = 31,
+                       IsMain = true
+                   });
+                builder.Entity<CarImage>().HasData(
+                   new CarImage
+                   {
+                       Id = 32,
+                       ImageUrl = "tesla-3-2017.png",
+                       CarId = 32,
+                       IsMain = true
+                   });
+             builder.Entity<CarImage>().HasData(
+                   new CarImage
+                   {
+                       Id = 33,
+                       ImageUrl = "nissan-leaf-2017.png",
+                       CarId = 33,
+                       IsMain = true
+                   });
 
 
             #endregion
@@ -793,6 +903,79 @@ namespace CarRental.DAL
                    Contact = "+994 55 347 08 80",
                    Email = "hwcarrental@bk.ru",
                    WorkTime = "Bazar ertəsi-Şənbə 9:00pm - 5:00pm Bazar:Bağlıdır",
+               });
+
+
+            #endregion
+
+            #region About
+            builder.Entity<About>().HasData(
+               new About
+               {
+                   Id = 1,
+                   Title = "BİZ KİMİK",
+                   HeaderDesc = "Əziz şəhərimizin qonaqları sizi “HOT WHEEL CAR RENTAL” şirkəti olaraq salamlayırıq.",
+                   Desc = "Hot Wheel Car Rental şirkəti yeni yaranmasına baxmayaraq, ölkədə ən böyük avtomobil qarajına sahibdir. Bizim bütün avtomobillərimiz  bütün standartlara cavab verən, ekoloji tələblərə riayət edən yeni avtomobillərdir. Bizim şirkət avtomobil icarəsi bazarına yeni daxil olduğu üçün sərfəli qiymətlərlə digər şirkətləri üstələyir. Kirayə maşın bazarında çox şirkətin olmasına baxmayaraq keyfiyyətli və təhlükəsiz şirkət azlıq təşkil edir.",
+                   ImageUrl = "hero_2.jpg",
+               });
+
+
+            #endregion
+
+            #region Team
+            builder.Entity<Team>().HasData(
+               new Team
+               {
+                   Id = 1,
+                   Name = "Murad",
+                   Surname = "Vəliyev",
+                   Position = "CEO",
+                   ImageUrl = "murad.jpg"
+               });
+            builder.Entity<Team>().HasData(
+               new Team
+               {
+                   Id = 2,
+                   Name = "Rəşid",
+                   Surname = "Məmməmdov",
+                   Position = "CFO",
+                   ImageUrl = "rashid.jpg"
+               });
+            builder.Entity<Team>().HasData(
+               new Team
+               {
+                   Id = 3,
+                   Name = "Fərid",
+                   Surname = "Balıyev",
+                   Position = "Developer",
+                   ImageUrl = "farid.jpg"
+               });
+            builder.Entity<Team>().HasData(
+               new Team
+               {
+                   Id = 4,
+                   Name = "Umud",
+                   Surname = "Umudov",
+                   Position = "Mütəxəssis",
+                   ImageUrl = "umud.jpg"
+               });
+            builder.Entity<Team>().HasData(
+               new Team
+               {
+                   Id = 5,
+                   Name = "Samir",
+                   Surname = "Əmiraslanov",
+                   Position = "Mütəxəssis",
+                   ImageUrl = "samir.jpg"
+               });
+            builder.Entity<Team>().HasData(
+               new Team
+               {
+                   Id = 6,
+                   Name = "Orxan",
+                   Surname = "Qəhrəmanov",
+                   Position = "Mütəxəssis",
+                   ImageUrl = "orxan.jpg"
                });
 
 

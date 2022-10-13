@@ -2,8 +2,6 @@
 using CarRental.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RentACarProject.Models;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,7 +15,7 @@ namespace CarRental.Controllers
         public HomeController(AppDbContext context)
         {
             _context = context;
-        }
+        }  
 
         public async Task<IActionResult> Index()
         {

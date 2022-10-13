@@ -1,4 +1,4 @@
-﻿using RentACarProject.Models;
+﻿using CarRental.Models;
 using System.Collections.Generic;
 
 namespace CarRental.ViewModels

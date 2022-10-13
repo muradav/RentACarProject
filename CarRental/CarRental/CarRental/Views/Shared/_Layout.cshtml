@@ -8,6 +8,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
 
+
     <link rel="stylesheet" href="~/assets/fonts/icomoon/style.css">
 
     <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
@@ -55,29 +56,56 @@
               <span class="d-inline-block d-lg-none"><a href="#" class=" site-menu-toggle js-menu-toggle py-5 "><span class="icon-menu h3 text-black"></span></a></span>
 
               <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
-                <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                  <li class="active"><a asp-controller="home" asp-action="index" class="nav-link">Əsas Səhifə</a></li>
-                  <li><a asp-controller="rental" asp-action="index" class="nav-link">Avtomobil icarəsi</a></li>
+                <ul class="site-menu main-menu js-clone-nav ml-auto">
+                  <li><a asp-controller="home" asp-action="index" class="nav-link"><strong>Əsas Səhifə</strong></a></li>
+                  <li><a asp-controller="car" asp-action="index" class="nav-link"><strong>Avtomobil icarəsi</strong></a></li>
                   <!-- <li><a href="testimonials.html" class="nav-link">Bloq</a></li> -->
-                  <li><a href="blog.html" class="nav-link">Bloq</a></li>
-                  <li><a href="about.html" class="nav-link">Haqqımızda</a></li>
-                  <li><a asp-controller="contact" asp-action="index" class="nav-link">Əlaqə</a></li>
+                  <li><a href="blog.html" class="nav-link"><strong>Bloq</strong></a></li>
+                  <li><a asp-controller="about" asp-action="index" class="nav-link"><strong>Haqqımızda</strong></a></li>
+                  <li><a asp-controller="contact" asp-action="index" class="nav-link"><strong>Əlaqə</strong></a></li>
                 </ul>
               </nav>
             </div>
             <div class="col-2 text-sm-right dropdown show">
               <a role="button" type="button" class="btn" data-toggle="dropdown"> 
-                <img src="~/assets/images/account.png" style="width: 32px;" alt="">
+                @if (User.Identity.IsAuthenticated)
+                {
+                   <img src="~/assets/images/rashid.jpg" style="width: 40px; border-radius:50%;" alt="">
+                   <span>@User.Identity.Name</span>
+                }
+                else
+                {
+                    <img src="~/assets/images/account.png" style="width: 40px;" alt="">
+                }       
               </a>
 
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                 <ul class="px-0 list-group" style="list-style:none;">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                       if (User.IsInRole( "Admin"))
+                       {
+                           <li><a class="dropdown-item" asp-controller="" asp-action="">Admin panel</a></li>
+                           <li><a class="dropdown-item" asp-controller="" asp-action="">Mənim hesabım</a></li>
+                           <li><a class="dropdown-item" asp-controller="" asp-action="">İcarə etdiklərim</a></li>
+                           <li><a class="dropdown-item" asp-controller="auth" asp-action="logout">Çıxış</a></li>
+                       }
+                       else
+                       {
+                           <li><a class="dropdown-item" asp-controller="" asp-action="">Mənim hesabım</a></li>
+                           <li><a class="dropdown-item" asp-controller="" asp-action="">İcarə etdiklərim</a></li>
+                           <li><a class="dropdown-item" asp-controller="auth" asp-action="logout">Çıxış</a></li>
+                       }
+
+                    }
+                    else
+                    {
+                        <li><a class="dropdown-item" asp-controller="auth" asp-action="login">Daxil Ol</a></li>
+                        <li><a class="dropdown-item" asp-controller="auth" asp-action="register">Qeydiyyat</a></li>
+                    }        
+                 </ul>
               </div>
             </div>
-
-            
           </div>
         </div>
 
@@ -98,7 +126,7 @@
                   <input
                     placeholder="E-poçt ünvanı daxil edin"
                     type="email"
-                    style="width:300px;"
+                    style="width:320px;"
                   />
                   <a class="btn btn-primary btn-sm text-light">
                     Abune Ol
@@ -185,19 +213,19 @@
 
     </div>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/bootstrap-datepicker.min.js"></script>
-    <script src="js/aos.js"></script>
+    <script src="~/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="~/assets/js/popper.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/owl.carousel.min.js"></script>
+    <script src="~/assets/js/jquery.sticky.js"></script>
+    <script src="~/assets/js/jquery.waypoints.min.js"></script>
+    <script src="~/assets/js/jquery.animateNumber.min.js"></script>
+    <script src="~/assets/js/jquery.fancybox.min.js"></script>
+    <script src="~/assets/js/jquery.easing.1.3.js"></script>
+    <script src="~/assets/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/assets/js/aos.js"></script>
 
-    <script src="js/main.js"></script>
+    <script src="~/assets/js/main.js"></script>
 
   </body>
 

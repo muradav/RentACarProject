@@ -3,7 +3,7 @@ using CarRental.DAL;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RentACarProject.Models;
+using CarRental.Models;
 
 namespace Allup.Services
 {

@@ -19,6 +19,40 @@ namespace CarRental.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("CarRental.Models.About", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HeaderDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("About");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Desc = "Hot Wheel Car Rental şirkəti yeni yaranmasına baxmayaraq, ölkədə ən böyük avtomobil qarajına sahibdir. Bizim bütün avtomobillərimiz  bütün standartlara cavab verən, ekoloji tələblərə riayət edən yeni avtomobillərdir. Bizim şirkət avtomobil icarəsi bazarına yeni daxil olduğu üçün sərfəli qiymətlərlə digər şirkətləri üstələyir. Kirayə maşın bazarında çox şirkətin olmasına baxmayaraq keyfiyyətli və təhlükəsiz şirkət azlıq təşkil edir.",
+                            HeaderDesc = "Əziz şəhərimizin qonaqları sizi “HOT WHEEL CAR RENTAL” şirkəti olaraq salamlayırıq.",
+                            ImageUrl = "hero_2.jpg",
+                            Title = "BİZ KİMİK"
+                        });
+                });
+
             modelBuilder.Entity("CarRental.Models.Bio", b =>
                 {
                     b.Property<int>("Id")
@@ -54,6 +88,80 @@ namespace CarRental.Migrations
                             ImageUrl = "logo.png",
                             Location = "Nizami küçəsi 203B, AF Business House, 2-ci mərtəbə, Baku 1000, Azerbaijan",
                             WorkTime = "Bazar ertəsi-Şənbə 9:00pm - 5:00pm Bazar:Bağlıdır"
+                        });
+                });
+
+            modelBuilder.Entity("CarRental.Models.Team", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Position")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Teams");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ImageUrl = "murad.jpg",
+                            Name = "Murad",
+                            Position = "CEO",
+                            Surname = "Vəliyev"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ImageUrl = "rashid.jpg",
+                            Name = "Rəşid",
+                            Position = "CFO",
+                            Surname = "Məmməmdov"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ImageUrl = "farid.jpg",
+                            Name = "Fərid",
+                            Position = "Developer",
+                            Surname = "Balıyev"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ImageUrl = "umud.jpg",
+                            Name = "Umud",
+                            Position = "Mütəxəssis",
+                            Surname = "Umudov"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ImageUrl = "samir.jpg",
+                            Name = "Samir",
+                            Position = "Mütəxəssis",
+                            Surname = "Əmiraslanov"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ImageUrl = "orxn.jpg",
+                            Name = "Orxa",
+                            Position = "CEO",
+                            Surname = "Qəhrəmanov"
                         });
                 });
 
@@ -221,7 +329,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 785, DateTimeKind.Local).AddTicks(4049),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 823, DateTimeKind.Local).AddTicks(2309),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "mercedes.png",
                             Name = "Mercedes",
@@ -231,7 +339,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 790, DateTimeKind.Local).AddTicks(744),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(4796),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "hyundai.png",
                             Name = "Hyundai",
@@ -241,7 +349,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 790, DateTimeKind.Local).AddTicks(1237),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(5342),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "toyota.png",
                             Name = "Toyota",
@@ -251,7 +359,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 790, DateTimeKind.Local).AddTicks(1359),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(5511),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "bmw.png",
                             Name = "BMW",
@@ -261,7 +369,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 790, DateTimeKind.Local).AddTicks(1464),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(5652),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "nissan.png",
                             Name = "Nissan",
@@ -271,7 +379,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 790, DateTimeKind.Local).AddTicks(1572),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(5807),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "mitsubishi.png",
                             Name = "Mitsubishi",
@@ -281,7 +389,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 790, DateTimeKind.Local).AddTicks(1657),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(5955),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "kia.png",
                             Name = "Kia",
@@ -291,7 +399,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 790, DateTimeKind.Local).AddTicks(1740),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(6097),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "chevrolet.png",
                             Name = "Chevrolet",
@@ -301,10 +409,20 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 790, DateTimeKind.Local).AddTicks(1826),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(6502),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "lexus.png",
                             Name = "Lexus",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(6727),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ImageUrl = "tesla.png",
+                            Name = "Tesla",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             isDeleted = false
                         });
@@ -367,10 +485,10 @@ namespace CarRental.Migrations
                             Id = 1,
                             BrandId = 4,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(1476),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 829, DateTimeKind.Local).AddTicks(9486),
                             DailyPrice = 250.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Benzin",
                             ModelYear = 2012,
                             Name = "M5",
                             PassengerCount = 5,
@@ -383,10 +501,10 @@ namespace CarRental.Migrations
                             Id = 2,
                             BrandId = 4,
                             ColorId = 3,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(2615),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(931),
                             DailyPrice = 200.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Benzin",
                             ModelYear = 2011,
                             Name = "X5",
                             PassengerCount = 5,
@@ -399,10 +517,10 @@ namespace CarRental.Migrations
                             Id = 3,
                             BrandId = 8,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(2785),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(1180),
                             DailyPrice = 50.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Qaz",
                             ModelYear = 2013,
                             Name = "Aveo",
                             PassengerCount = 5,
@@ -415,10 +533,10 @@ namespace CarRental.Migrations
                             Id = 4,
                             BrandId = 2,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(2919),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(1340),
                             DailyPrice = 50.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Dizel",
                             ModelYear = 2014,
                             Name = "Accent",
                             PassengerCount = 5,
@@ -431,10 +549,10 @@ namespace CarRental.Migrations
                             Id = 5,
                             BrandId = 2,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(3055),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(1512),
                             DailyPrice = 85.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Benzin",
                             ModelYear = 2013,
                             Name = "Azera",
                             PassengerCount = 5,
@@ -447,10 +565,10 @@ namespace CarRental.Migrations
                             Id = 6,
                             BrandId = 2,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(3203),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(1671),
                             DailyPrice = 55.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Benzin",
                             ModelYear = 2015,
                             Name = "Elantra",
                             PassengerCount = 5,
@@ -463,10 +581,10 @@ namespace CarRental.Migrations
                             Id = 7,
                             BrandId = 2,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(3341),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(1813),
                             DailyPrice = 140.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Diesel",
+                            FuelType = "Dizel",
                             ModelYear = 2014,
                             Name = "H1",
                             PassengerCount = 9,
@@ -479,10 +597,10 @@ namespace CarRental.Migrations
                             Id = 8,
                             BrandId = 2,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(3464),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(1973),
                             DailyPrice = 65.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Benzin",
                             ModelYear = 2014,
                             Name = "Ix35",
                             PassengerCount = 5,
@@ -495,10 +613,10 @@ namespace CarRental.Migrations
                             Id = 9,
                             BrandId = 2,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(3563),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(2131),
                             DailyPrice = 70.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Diesel",
+                            FuelType = "Dizel",
                             ModelYear = 2013,
                             Name = "Sonata",
                             PassengerCount = 5,
@@ -511,10 +629,10 @@ namespace CarRental.Migrations
                             Id = 10,
                             BrandId = 2,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(3789),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(2303),
                             DailyPrice = 75.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Benzin",
                             ModelYear = 2017,
                             Name = "Sonata",
                             PassengerCount = 5,
@@ -527,10 +645,10 @@ namespace CarRental.Migrations
                             Id = 11,
                             BrandId = 7,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(3934),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(2448),
                             DailyPrice = 55.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Benzin",
                             ModelYear = 2014,
                             Name = "Cerato",
                             PassengerCount = 5,
@@ -543,10 +661,10 @@ namespace CarRental.Migrations
                             Id = 12,
                             BrandId = 7,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(4058),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(2592),
                             DailyPrice = 75.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Benzin",
                             ModelYear = 2014,
                             Name = "Optima",
                             PassengerCount = 5,
@@ -559,10 +677,10 @@ namespace CarRental.Migrations
                             Id = 13,
                             BrandId = 7,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(4176),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(2751),
                             DailyPrice = 50.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Diesel",
+                            FuelType = "Dizel",
                             ModelYear = 2014,
                             Name = "Rio",
                             PassengerCount = 5,
@@ -575,10 +693,10 @@ namespace CarRental.Migrations
                             Id = 14,
                             BrandId = 7,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(4303),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(3164),
                             DailyPrice = 90.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Diesel",
+                            FuelType = "Dizel",
                             ModelYear = 2013,
                             Name = "Sorento",
                             PassengerCount = 7,
@@ -591,10 +709,10 @@ namespace CarRental.Migrations
                             Id = 15,
                             BrandId = 7,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(4423),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(3325),
                             DailyPrice = 65.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Dizel",
                             ModelYear = 2014,
                             Name = "Sportage",
                             PassengerCount = 5,
@@ -607,10 +725,10 @@ namespace CarRental.Migrations
                             Id = 16,
                             BrandId = 9,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(4544),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(3497),
                             DailyPrice = 200.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Benzin",
                             ModelYear = 2012,
                             Name = "LX570",
                             PassengerCount = 7,
@@ -623,10 +741,10 @@ namespace CarRental.Migrations
                             Id = 17,
                             BrandId = 1,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(4663),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(3664),
                             DailyPrice = 350.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Benzin",
                             ModelYear = 2012,
                             Name = "G-class",
                             PassengerCount = 5,
@@ -639,10 +757,10 @@ namespace CarRental.Migrations
                             Id = 18,
                             BrandId = 1,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(4793),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(3815),
                             DailyPrice = 400.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Benzin",
                             ModelYear = 2015,
                             Name = "G-class",
                             PassengerCount = 5,
@@ -655,10 +773,10 @@ namespace CarRental.Migrations
                             Id = 19,
                             BrandId = 1,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(4913),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(3966),
                             DailyPrice = 350.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Diesel",
+                            FuelType = "Dizel",
                             ModelYear = 2016,
                             Name = "S-class",
                             PassengerCount = 4,
@@ -671,10 +789,10 @@ namespace CarRental.Migrations
                             Id = 20,
                             BrandId = 1,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(5264),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(4123),
                             DailyPrice = 450.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Diesel",
+                            FuelType = "Dizel",
                             ModelYear = 2016,
                             Name = "V-class",
                             PassengerCount = 6,
@@ -687,10 +805,10 @@ namespace CarRental.Migrations
                             Id = 21,
                             BrandId = 6,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(5457),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(4273),
                             DailyPrice = 80.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Diesel",
+                            FuelType = "Dizel",
                             ModelYear = 2013,
                             Name = "L200",
                             PassengerCount = 5,
@@ -703,10 +821,10 @@ namespace CarRental.Migrations
                             Id = 22,
                             BrandId = 6,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(5569),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(4426),
                             DailyPrice = 85.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Benzin",
                             ModelYear = 2013,
                             Name = "Pajero",
                             PassengerCount = 7,
@@ -719,10 +837,10 @@ namespace CarRental.Migrations
                             Id = 23,
                             BrandId = 5,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(5684),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(4574),
                             DailyPrice = 90.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Diesel",
+                            FuelType = "Dizel",
                             ModelYear = 2013,
                             Name = "Navara",
                             PassengerCount = 5,
@@ -735,10 +853,10 @@ namespace CarRental.Migrations
                             Id = 24,
                             BrandId = 5,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(5808),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(4741),
                             DailyPrice = 50.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Benzin",
                             ModelYear = 2014,
                             Name = "Sunny",
                             PassengerCount = 5,
@@ -751,10 +869,10 @@ namespace CarRental.Migrations
                             Id = 25,
                             BrandId = 3,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(5931),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(4909),
                             DailyPrice = 90.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Benzin",
                             ModelYear = 2013,
                             Name = "Camry",
                             PassengerCount = 5,
@@ -767,10 +885,10 @@ namespace CarRental.Migrations
                             Id = 26,
                             BrandId = 3,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(6050),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(5069),
                             DailyPrice = 160.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Benzin",
                             ModelYear = 2014,
                             Name = "Land Cruiser",
                             PassengerCount = 7,
@@ -783,10 +901,10 @@ namespace CarRental.Migrations
                             Id = 27,
                             BrandId = 3,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(6175),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(5226),
                             DailyPrice = 300.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Benzin",
                             ModelYear = 2018,
                             Name = "Land Cruiser",
                             PassengerCount = 7,
@@ -799,10 +917,10 @@ namespace CarRental.Migrations
                             Id = 28,
                             BrandId = 3,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(6297),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(5393),
                             DailyPrice = 120.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Diesel",
+                            FuelType = "Dizel",
                             ModelYear = 2015,
                             Name = "Prado",
                             PassengerCount = 7,
@@ -815,13 +933,77 @@ namespace CarRental.Migrations
                             Id = 29,
                             BrandId = 3,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 12, 22, 58, 44, 791, DateTimeKind.Local).AddTicks(6417),
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(5543),
                             DailyPrice = 200.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FuelType = "Petrol",
+                            FuelType = "Benzin",
                             ModelYear = 2018,
                             Name = "Prado",
                             PassengerCount = 7,
+                            TransmissionType = "Auto",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
+                        },
+                        new
+                        {
+                            Id = 30,
+                            BrandId = 10,
+                            ColorId = 2,
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(5692),
+                            DailyPrice = 250.0,
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelType = "Elektrik",
+                            ModelYear = 2016,
+                            Name = "Tesla X",
+                            PassengerCount = 5,
+                            TransmissionType = "Auto",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
+                        },
+                        new
+                        {
+                            Id = 31,
+                            BrandId = 10,
+                            ColorId = 5,
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(5844),
+                            DailyPrice = 270.0,
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelType = "Elektrik",
+                            ModelYear = 2018,
+                            Name = "Tesla S",
+                            PassengerCount = 4,
+                            TransmissionType = "Auto",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
+                        },
+                        new
+                        {
+                            Id = 32,
+                            BrandId = 10,
+                            ColorId = 4,
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(6000),
+                            DailyPrice = 250.0,
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelType = "Elektrik",
+                            ModelYear = 2017,
+                            Name = "Tesla 3",
+                            PassengerCount = 4,
+                            TransmissionType = "Auto",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
+                        },
+                        new
+                        {
+                            Id = 33,
+                            BrandId = 5,
+                            ColorId = 6,
+                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(6274),
+                            DailyPrice = 70.0,
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelType = "Elektrik",
+                            ModelYear = 2017,
+                            Name = "Leaf",
+                            PassengerCount = 5,
                             TransmissionType = "Auto",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             isDeleted = false
@@ -1181,6 +1363,50 @@ namespace CarRental.Migrations
                             IsMain = true,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             isDeleted = false
+                        },
+                        new
+                        {
+                            Id = 30,
+                            CarId = 30,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ImageUrl = "tesla-x-2016.png",
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
+                        },
+                        new
+                        {
+                            Id = 31,
+                            CarId = 31,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ImageUrl = "tesla-s-2018.png",
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
+                        },
+                        new
+                        {
+                            Id = 32,
+                            CarId = 32,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ImageUrl = "tesla-3-2017.png",
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
+                        },
+                        new
+                        {
+                            Id = 33,
+                            CarId = 33,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ImageUrl = "nissan-leaf-2017.png",
+                            IsMain = true,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
                         });
                 });
 
@@ -1216,7 +1442,7 @@ namespace CarRental.Migrations
                             Id = 1,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "black",
+                            Name = "qara",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             isDeleted = false
                         },
@@ -1225,7 +1451,7 @@ namespace CarRental.Migrations
                             Id = 2,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "white",
+                            Name = "ağ",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             isDeleted = false
                         },
@@ -1234,7 +1460,7 @@ namespace CarRental.Migrations
                             Id = 3,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "brown",
+                            Name = "qəhvəyi",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             isDeleted = false
                         },
@@ -1243,7 +1469,25 @@ namespace CarRental.Migrations
                             Id = 4,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "grey",
+                            Name = "boz",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "qırmızı",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            isDeleted = false
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "mavi",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             isDeleted = false
                         });

@@ -3,34 +3,34 @@ using CarRental.Helpers;
 using CarRental.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RentACarProject.Models;
-using System.Collections.Generic;
+using CarRental.Models;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace CarRental.Controllers
 {
-    public class RentalController : Controller
+    public class CarController : Controller
     {
+
         private readonly AppDbContext _context;
 
-        public RentalController(AppDbContext context)
+        public CarController(AppDbContext context)
         {
             _context = context;
         }
 
         public async Task<IActionResult> Index(int page = 1, int pageSize = 6)
         {
-            RentalVM rental = new RentalVM();
+            CarVM car = new CarVM();
 
-            rental.Cars = await _context.Cars
+            car.Cars = await _context.Cars
                 .Where(c => c.isDeleted == false)
                 .Include(c => c.Brand)
                 .Include(c => c.CarImages)
                 .Include(c => c.Color).ToListAsync();
-            rental.PagedLists = PagedList<Car>.CreateAsync(rental.Cars, page, pageSize);
+            car.PagedLists = PagedList<Car>.CreateAsync(car.Cars, page, pageSize);
 
-            return View(rental);
+            return View(car);
         }
     }
 }

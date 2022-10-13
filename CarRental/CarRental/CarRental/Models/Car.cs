@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RentACarProject.Models
+namespace CarRental.Models
 {
     public class Car:BaseEntity
     {

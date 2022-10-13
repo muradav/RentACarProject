@@ -1586,7 +1586,7 @@ h1, h2, h3, h4, h5,
 
 .hero {
   position: relative;
-  background-image:url(../images/hero_1_a.jpg);
+  background-image:url(../images/header-bg.jpg);
   background-size: cover; }
   .hero, .hero > .container > .row {
     height: 100vh;
@@ -1610,7 +1610,7 @@ h1, h2, h3, h4, h5,
   .custom-breadcrumbs strong {
     font-weight: 700; }
 
-.custom-pagination a, .custom-pagination span {
+/*.custom-pagination a, .custom-pagination span {
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -1623,7 +1623,35 @@ h1, h2, h3, h4, h5,
 
 .custom-pagination a {
   background: #0779e4;
-  color: #fff; }
+  color: #fff; }*/
+
+/*===== All Pagination Style =====*/
+.pagination {
+    padding: 15px 10px;
+    background: #f2f2f2;
+}
+
+    .pagination li {
+        margin: 0 3px;
+    }
+
+   .pagination li a {
+            font-weight: 400;
+            color: #fff;
+            padding: 0;
+            height: 36px;
+            line-height: 36px;
+            background: #c2c2c2;
+            font-size: 15px;
+            display: inline-block;
+            width: 36px;
+            border-radius: 100%;
+            text-align: center;
+   }
+
+  .pagination li:hover a, .pagination li.active a {
+            background-color: #000;
+  }
 
 .trip-form {
   border-radius: 7px;
@@ -1712,7 +1740,6 @@ h1, h2, h3, h4, h5,
 
 .img-wrap-1 img {
   max-width: 600px; 
-  border-radius: 5%;
 }
 
 .social li {
@@ -1775,5 +1802,37 @@ h1, h2, h3, h4, h5,
     padding-left: 10%;
     padding-top: 12%;
     padding-right: 30%;
-    height:200px;
+    max-height:700px;
+}
+
+/*===========================
+ 27.Login Register Page css 
+===========================*/
+.login-register-wrapper {
+    border: 2px solid #e5e5e5;
+    padding: 25px 30px;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .login-register-wrapper {
+        padding: 30px 20px;
+    }
+}
+
+.login-register-wrapper p {
+    font-size: 14px;
+    color: #333;
+    line-height: 35px;
+}
+
+    .login-register-wrapper p a {
+        color: #e52e06;
+    }
+
+.login-register-wrapper .custom-checkbox input[type="checkbox"] + label {
+    margin: 3px 8px 0px 0;
+}
+
+.login-register-wrapper .custom-checkbox p {
+    line-height: 24px;
 }

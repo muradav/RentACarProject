@@ -1,10 +1,10 @@
 ﻿using CarRental.Helpers;
-using RentACarProject.Models;
+using CarRental.Models;
 using System.Collections.Generic;
 
 namespace CarRental.ViewModels
 {
-    public class RentalVM
+    public class ElectricVM
     {
         public List<Car> Cars { get; set; }
         public PagedList<Car> PagedLists { get; set; }

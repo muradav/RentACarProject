@@ -1,4 +1,4 @@
-﻿namespace RentACarProject.Models
+﻿namespace CarRental.Models
 {
     public class CarImage: BaseEntity
     {
