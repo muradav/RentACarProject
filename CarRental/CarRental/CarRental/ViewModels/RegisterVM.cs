@@ -24,5 +24,6 @@ namespace CarRental.ViewModels
 
         [Required, DataType(DataType.Password), Compare(nameof(Password))]
         public string RepeatPassword { get; set; }
+        public bool? EmailConfirmed { get; set; }
     }
 }

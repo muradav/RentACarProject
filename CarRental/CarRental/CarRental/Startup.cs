@@ -1,8 +1,10 @@
 using Allup.Services;
+using CarRental.CustomTokenProviders;
 using CarRental.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,6 +35,10 @@ namespace CarRental
                 option.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
             });
             services.AddIdentityServices();
+            services.Configure<DataProtectionTokenProviderOptions>(opt =>
+             opt.TokenLifespan = TimeSpan.FromHours(2));
+            services.Configure<EmailConfirmationTokenProviderOptions>(opt =>
+                opt.TokenLifespan = TimeSpan.FromHours(1));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

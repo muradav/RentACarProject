@@ -1,5 +1,6 @@
 ﻿using CarRental.DAL;
 using CarRental.Models;
+using CarRental.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,9 +21,17 @@ namespace CarRental.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var userId = _userManager.GetUserId(Request.HttpContext.User);
+            HeaderVM header = new HeaderVM();
 
-            return View(await Task.FromResult(user));
+            header.User = new User();
+
+            if (User.Identity.IsAuthenticated)
+            {
+                header.User =await _userManager.FindByNameAsync(User.Identity.Name);
+            }
+
+
+            return View(header);
         }
 
 

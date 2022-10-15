@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using CarRental.Models;
 using System;
 using System.Threading.Tasks;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
+using Allup.Services;
+using Microsoft.Extensions.Configuration;
 
 namespace CarRental.Controllers
 {
@@ -14,13 +17,15 @@ namespace CarRental.Controllers
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly IConfiguration _config;
 
-        public AuthController(AppDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, SignInManager<User> signInManager)
+        public AuthController(AppDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, SignInManager<User> signInManager, IConfiguration config)
         {
             _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
             _signInManager = signInManager;
+            _config = config;
         }
 
         public IActionResult Index()
@@ -49,7 +54,7 @@ namespace CarRental.Controllers
 
             };
 
-            IdentityResult result = await _userManager.CreateAsync(user, registerVM.Password);
+            var result = await _userManager.CreateAsync(user, registerVM.Password);
 
             if (!result.Succeeded)
             {
@@ -60,11 +65,43 @@ namespace CarRental.Controllers
                 return View(registerVM);
             }
 
-            await _userManager.AddToRoleAsync(user, Roles.Admin.ToString());
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            var confirmationLink = Url.Action(nameof(ConfirmEmail), "Auth", new { token, email = user.Email }, Request.Scheme);
+
+            EmailService emailService = new EmailService(_config.GetSection("ConfirmationParams:Email").Value, _config.GetSection("ConfirmationParams:Password").Value);
+
+            var emailResult = emailService.SendEmailConfirmation(user.Email, "E-poçt təsdiq linki", $"Zəhmət olmasa linkə daxil olaraq elektron poçt ünvanınızı təsdiq edin: {confirmationLink}");
+
+
+            await _userManager.AddToRoleAsync(user, Roles.Customer.ToString());
 
             
 
-            return RedirectToAction("login");
+            return RedirectToAction(nameof(SuccessRegistration));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ConfirmEmail(string token, string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+                return View("Error");
+            var result = await _userManager.ConfirmEmailAsync(user, token);
+            return View(result.Succeeded ? nameof(ConfirmEmail) : "Error");
+        }
+
+        [HttpGet]
+        public IActionResult SuccessRegistration()
+        {
+            
+
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Error()
+        {
+            return View();
         }
 
 
@@ -108,7 +145,7 @@ namespace CarRental.Controllers
                 {
                     if (item == "Admin")
                     {
-                        return RedirectToAction("Index", "dashboard", new { area = "Customer" });
+                        return RedirectToAction("index", "dashboard", new { area = "Admin" });
                     }
                     else
                     {

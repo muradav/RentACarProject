@@ -91,212 +91,7 @@ namespace CarRental.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CarRental.Models.Team", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Position")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Surname")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Teams");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ImageUrl = "murad.jpg",
-                            Name = "Murad",
-                            Position = "CEO",
-                            Surname = "Vəliyev"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ImageUrl = "rashid.jpg",
-                            Name = "Rəşid",
-                            Position = "CFO",
-                            Surname = "Məmməmdov"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ImageUrl = "farid.jpg",
-                            Name = "Fərid",
-                            Position = "Developer",
-                            Surname = "Balıyev"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ImageUrl = "umud.jpg",
-                            Name = "Umud",
-                            Position = "Mütəxəssis",
-                            Surname = "Umudov"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ImageUrl = "samir.jpg",
-                            Name = "Samir",
-                            Position = "Mütəxəssis",
-                            Surname = "Əmiraslanov"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            ImageUrl = "orxn.jpg",
-                            Name = "Orxa",
-                            Position = "CEO",
-                            Surname = "Qəhrəmanov"
-                        });
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("NormalizedName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
-
-                    b.ToTable("AspNetRoles");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RoleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetRoleClaims");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AspNetUserClaims");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-                {
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("LoginProvider", "ProviderKey");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AspNetUserLogins");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("UserId", "RoleId");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetUserRoles");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserId", "LoginProvider", "Name");
-
-                    b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("RentACarProject.Models.Brand", b =>
+            modelBuilder.Entity("CarRental.Models.Brand", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -329,7 +124,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 823, DateTimeKind.Local).AddTicks(2309),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 234, DateTimeKind.Local).AddTicks(2187),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "mercedes.png",
                             Name = "Mercedes",
@@ -339,7 +134,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(4796),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 237, DateTimeKind.Local).AddTicks(4045),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "hyundai.png",
                             Name = "Hyundai",
@@ -349,7 +144,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(5342),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 237, DateTimeKind.Local).AddTicks(4347),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "toyota.png",
                             Name = "Toyota",
@@ -359,7 +154,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(5511),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 237, DateTimeKind.Local).AddTicks(4410),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "bmw.png",
                             Name = "BMW",
@@ -369,7 +164,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(5652),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 237, DateTimeKind.Local).AddTicks(4460),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "nissan.png",
                             Name = "Nissan",
@@ -379,7 +174,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(5807),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 237, DateTimeKind.Local).AddTicks(4525),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "mitsubishi.png",
                             Name = "Mitsubishi",
@@ -389,7 +184,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(5955),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 237, DateTimeKind.Local).AddTicks(4576),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "kia.png",
                             Name = "Kia",
@@ -399,7 +194,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(6097),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 237, DateTimeKind.Local).AddTicks(4626),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "chevrolet.png",
                             Name = "Chevrolet",
@@ -409,7 +204,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(6502),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 237, DateTimeKind.Local).AddTicks(4675),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "lexus.png",
                             Name = "Lexus",
@@ -419,7 +214,7 @@ namespace CarRental.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 828, DateTimeKind.Local).AddTicks(6727),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 237, DateTimeKind.Local).AddTicks(4728),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageUrl = "tesla.png",
                             Name = "Tesla",
@@ -428,7 +223,7 @@ namespace CarRental.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RentACarProject.Models.Car", b =>
+            modelBuilder.Entity("CarRental.Models.Car", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -485,7 +280,7 @@ namespace CarRental.Migrations
                             Id = 1,
                             BrandId = 4,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 829, DateTimeKind.Local).AddTicks(9486),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(2794),
                             DailyPrice = 250.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Benzin",
@@ -501,7 +296,7 @@ namespace CarRental.Migrations
                             Id = 2,
                             BrandId = 4,
                             ColorId = 3,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(931),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(3302),
                             DailyPrice = 200.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Benzin",
@@ -517,7 +312,7 @@ namespace CarRental.Migrations
                             Id = 3,
                             BrandId = 8,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(1180),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(3390),
                             DailyPrice = 50.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Qaz",
@@ -533,7 +328,7 @@ namespace CarRental.Migrations
                             Id = 4,
                             BrandId = 2,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(1340),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(3452),
                             DailyPrice = 50.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Dizel",
@@ -549,7 +344,7 @@ namespace CarRental.Migrations
                             Id = 5,
                             BrandId = 2,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(1512),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(3509),
                             DailyPrice = 85.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Benzin",
@@ -565,7 +360,7 @@ namespace CarRental.Migrations
                             Id = 6,
                             BrandId = 2,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(1671),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(3573),
                             DailyPrice = 55.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Benzin",
@@ -581,7 +376,7 @@ namespace CarRental.Migrations
                             Id = 7,
                             BrandId = 2,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(1813),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(3629),
                             DailyPrice = 140.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Dizel",
@@ -597,7 +392,7 @@ namespace CarRental.Migrations
                             Id = 8,
                             BrandId = 2,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(1973),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(3684),
                             DailyPrice = 65.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Benzin",
@@ -613,7 +408,7 @@ namespace CarRental.Migrations
                             Id = 9,
                             BrandId = 2,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(2131),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(3739),
                             DailyPrice = 70.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Dizel",
@@ -629,7 +424,7 @@ namespace CarRental.Migrations
                             Id = 10,
                             BrandId = 2,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(2303),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(3798),
                             DailyPrice = 75.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Benzin",
@@ -645,7 +440,7 @@ namespace CarRental.Migrations
                             Id = 11,
                             BrandId = 7,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(2448),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(3854),
                             DailyPrice = 55.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Benzin",
@@ -661,7 +456,7 @@ namespace CarRental.Migrations
                             Id = 12,
                             BrandId = 7,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(2592),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(3909),
                             DailyPrice = 75.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Benzin",
@@ -677,7 +472,7 @@ namespace CarRental.Migrations
                             Id = 13,
                             BrandId = 7,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(2751),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(3964),
                             DailyPrice = 50.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Dizel",
@@ -693,7 +488,7 @@ namespace CarRental.Migrations
                             Id = 14,
                             BrandId = 7,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(3164),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(4018),
                             DailyPrice = 90.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Dizel",
@@ -709,7 +504,7 @@ namespace CarRental.Migrations
                             Id = 15,
                             BrandId = 7,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(3325),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(4071),
                             DailyPrice = 65.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Dizel",
@@ -725,7 +520,7 @@ namespace CarRental.Migrations
                             Id = 16,
                             BrandId = 9,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(3497),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(4124),
                             DailyPrice = 200.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Benzin",
@@ -741,7 +536,7 @@ namespace CarRental.Migrations
                             Id = 17,
                             BrandId = 1,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(3664),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(4351),
                             DailyPrice = 350.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Benzin",
@@ -757,7 +552,7 @@ namespace CarRental.Migrations
                             Id = 18,
                             BrandId = 1,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(3815),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(4436),
                             DailyPrice = 400.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Benzin",
@@ -773,7 +568,7 @@ namespace CarRental.Migrations
                             Id = 19,
                             BrandId = 1,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(3966),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(4495),
                             DailyPrice = 350.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Dizel",
@@ -789,7 +584,7 @@ namespace CarRental.Migrations
                             Id = 20,
                             BrandId = 1,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(4123),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(4550),
                             DailyPrice = 450.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Dizel",
@@ -805,7 +600,7 @@ namespace CarRental.Migrations
                             Id = 21,
                             BrandId = 6,
                             ColorId = 1,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(4273),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(4606),
                             DailyPrice = 80.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Dizel",
@@ -821,7 +616,7 @@ namespace CarRental.Migrations
                             Id = 22,
                             BrandId = 6,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(4426),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(4661),
                             DailyPrice = 85.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Benzin",
@@ -837,7 +632,7 @@ namespace CarRental.Migrations
                             Id = 23,
                             BrandId = 5,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(4574),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(4717),
                             DailyPrice = 90.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Dizel",
@@ -853,7 +648,7 @@ namespace CarRental.Migrations
                             Id = 24,
                             BrandId = 5,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(4741),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(4771),
                             DailyPrice = 50.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Benzin",
@@ -869,7 +664,7 @@ namespace CarRental.Migrations
                             Id = 25,
                             BrandId = 3,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(4909),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(4824),
                             DailyPrice = 90.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Benzin",
@@ -885,7 +680,7 @@ namespace CarRental.Migrations
                             Id = 26,
                             BrandId = 3,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(5069),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(4877),
                             DailyPrice = 160.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Benzin",
@@ -901,7 +696,7 @@ namespace CarRental.Migrations
                             Id = 27,
                             BrandId = 3,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(5226),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(4930),
                             DailyPrice = 300.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Benzin",
@@ -917,7 +712,7 @@ namespace CarRental.Migrations
                             Id = 28,
                             BrandId = 3,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(5393),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(4985),
                             DailyPrice = 120.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Dizel",
@@ -933,7 +728,7 @@ namespace CarRental.Migrations
                             Id = 29,
                             BrandId = 3,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(5543),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(5039),
                             DailyPrice = 200.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Benzin",
@@ -949,7 +744,7 @@ namespace CarRental.Migrations
                             Id = 30,
                             BrandId = 10,
                             ColorId = 2,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(5692),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(5092),
                             DailyPrice = 250.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Elektrik",
@@ -965,7 +760,7 @@ namespace CarRental.Migrations
                             Id = 31,
                             BrandId = 10,
                             ColorId = 5,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(5844),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(5145),
                             DailyPrice = 270.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Elektrik",
@@ -981,7 +776,7 @@ namespace CarRental.Migrations
                             Id = 32,
                             BrandId = 10,
                             ColorId = 4,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(6000),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(5200),
                             DailyPrice = 250.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Elektrik",
@@ -997,7 +792,7 @@ namespace CarRental.Migrations
                             Id = 33,
                             BrandId = 5,
                             ColorId = 6,
-                            CreatedAt = new DateTime(2022, 10, 13, 10, 48, 26, 830, DateTimeKind.Local).AddTicks(6274),
+                            CreatedAt = new DateTime(2022, 10, 14, 12, 8, 25, 238, DateTimeKind.Local).AddTicks(5254),
                             DailyPrice = 70.0,
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelType = "Elektrik",
@@ -1010,7 +805,7 @@ namespace CarRental.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RentACarProject.Models.CarImage", b =>
+            modelBuilder.Entity("CarRental.Models.CarImage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1410,7 +1205,7 @@ namespace CarRental.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RentACarProject.Models.Color", b =>
+            modelBuilder.Entity("CarRental.Models.Color", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1493,7 +1288,7 @@ namespace CarRental.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RentACarProject.Models.Rental", b =>
+            modelBuilder.Entity("CarRental.Models.Rental", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1533,7 +1328,81 @@ namespace CarRental.Migrations
                     b.ToTable("Rentals");
                 });
 
-            modelBuilder.Entity("RentACarProject.Models.User", b =>
+            modelBuilder.Entity("CarRental.Models.Team", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Position")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Teams");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ImageUrl = "murad.jpg",
+                            Name = "Murad",
+                            Position = "CEO",
+                            Surname = "Vəliyev"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ImageUrl = "rashid.jpg",
+                            Name = "Rəşid",
+                            Position = "CFO",
+                            Surname = "Məmməmdov"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ImageUrl = "farid.jpg",
+                            Name = "Fərid",
+                            Position = "Developer",
+                            Surname = "Balıyev"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ImageUrl = "umud.jpg",
+                            Name = "Umud",
+                            Position = "Mütəxəssis",
+                            Surname = "Umudov"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ImageUrl = "samir.jpg",
+                            Name = "Samir",
+                            Position = "Mütəxəssis",
+                            Surname = "Əmiraslanov"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ImageUrl = "orxan.jpg",
+                            Name = "Orxan",
+                            Position = "Mütəxəssis",
+                            Surname = "Qəhrəmanov"
+                        });
+                });
+
+            modelBuilder.Entity("CarRental.Models.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -1551,6 +1420,9 @@ namespace CarRental.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -1604,6 +1476,174 @@ namespace CarRental.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("NormalizedName")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("CarRental.Models.Car", b =>
+                {
+                    b.HasOne("CarRental.Models.Brand", "Brand")
+                        .WithMany("Cars")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CarRental.Models.Color", "Color")
+                        .WithMany("Cars")
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CarRental.Models.CarImage", b =>
+                {
+                    b.HasOne("CarRental.Models.Car", "Car")
+                        .WithMany("CarImages")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CarRental.Models.Rental", b =>
+                {
+                    b.HasOne("CarRental.Models.Car", "Car")
+                        .WithMany("Rentals")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CarRental.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -1615,7 +1655,7 @@ namespace CarRental.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("RentACarProject.Models.User", null)
+                    b.HasOne("CarRental.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1624,7 +1664,7 @@ namespace CarRental.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("RentACarProject.Models.User", null)
+                    b.HasOne("CarRental.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1639,7 +1679,7 @@ namespace CarRental.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RentACarProject.Models.User", null)
+                    b.HasOne("CarRental.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1648,48 +1688,11 @@ namespace CarRental.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("RentACarProject.Models.User", null)
+                    b.HasOne("CarRental.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("RentACarProject.Models.Car", b =>
-                {
-                    b.HasOne("RentACarProject.Models.Brand", "Brand")
-                        .WithMany("Cars")
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("RentACarProject.Models.Color", "Color")
-                        .WithMany("Cars")
-                        .HasForeignKey("ColorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("RentACarProject.Models.CarImage", b =>
-                {
-                    b.HasOne("RentACarProject.Models.Car", "Car")
-                        .WithMany("CarImages")
-                        .HasForeignKey("CarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("RentACarProject.Models.Rental", b =>
-                {
-                    b.HasOne("RentACarProject.Models.Car", "Car")
-                        .WithMany("Rentals")
-                        .HasForeignKey("CarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("RentACarProject.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }
