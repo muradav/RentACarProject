@@ -4,25 +4,25 @@ namespace CarRental.ViewModels
 {
     public class RegisterVM
     {
-        [Required, StringLength(100)]
+        [Required(ErrorMessage =("Adınızı daxil edin")), StringLength(100)]
         public string Name { get; set; }
 
-        [Required, StringLength(100)]
+        [Required(ErrorMessage = ("Soyadınızı daxil edin")), StringLength(100)]
         public string Surname { get; set; }
 
-        [Required, StringLength(100)]
+        [Required(ErrorMessage = ("İstifadəçi adı daxil edin")), StringLength(100)]
         public string Username { get; set; }
 
-        [Required, DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = ("Elektron poçt daxil edin")), DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Required, DataType(DataType.PhoneNumber)]
+        [Required(ErrorMessage = ("Telefon nömrəsi daxil edin")), DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
 
-        [Required, DataType(DataType.Password)]
+        [Required(ErrorMessage = ("Şifrə daxil edin")), DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required, DataType(DataType.Password), Compare(nameof(Password))]
+        [Required(ErrorMessage = ("Şifrəni təkrar daxil edin")), DataType(DataType.Password), Compare(nameof(Password), ErrorMessage ="Düzgün şifrə daxil edin")]
         public string RepeatPassword { get; set; }
         public bool? EmailConfirmed { get; set; }
     }

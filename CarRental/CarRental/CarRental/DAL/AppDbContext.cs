@@ -568,7 +568,7 @@ namespace CarRental.DAL
                    new Car
                    {
                        Id = 30,
-                       Name = "Tesla X",
+                       Name = "X",
                        ModelYear = 2016,
                        DailyPrice = 250,
                        FuelType = "Elektrik",
@@ -582,7 +582,7 @@ namespace CarRental.DAL
                    new Car
                    {
                        Id = 31,
-                       Name = "Tesla S",
+                       Name = "S",
                        ModelYear = 2018,
                        DailyPrice = 270,
                        FuelType = "Elektrik",
@@ -596,7 +596,7 @@ namespace CarRental.DAL
                    new Car
                    {
                        Id = 32,
-                       Name = "Tesla 3",
+                       Name = "3",
                        ModelYear = 2017,
                        DailyPrice = 250,
                        FuelType = "Elektrik",

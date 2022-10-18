@@ -41,7 +41,7 @@ using CarRental.Helpers;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9baa118b31424e089794bb8a6d953a4e79adb7e8", @"/Views/Shared/Components/Header/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b80ee057bf40b8fb1307e17e6898dc63f281f798", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7ef66cc944c2b209137c1a66d68b9e5de1eee9b1", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shared_Components_Header_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<HeaderVM>
     #nullable disable

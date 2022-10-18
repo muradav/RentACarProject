@@ -275,3 +275,12 @@ C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\
 C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Views\Auth\SuccessRegistration.cshtml.g.cs
 C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Views\Auth\ConfirmEmail.cshtml.g.cs
 C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Views\Auth\Error.cshtml.g.cs
+C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Views\Auth\ForgotPassword.cshtml.g.cs
+C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Views\Auth\ForgotPasswordConfirmation.cshtml.g.cs
+C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Color\Index.cshtml.g.cs
+C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Views\Rental\Index.cshtml.g.cs
+C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Views\Rental\SendInvoice.cshtml.g.cs
+C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Car\Index.cshtml.g.cs
+C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Brand\Create.cshtml.g.cs
+C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Brand\Update.cshtml.g.cs
+C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Brand\DeletedBrands.cshtml.g.cs

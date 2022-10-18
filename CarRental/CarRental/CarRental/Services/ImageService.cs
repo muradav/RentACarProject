@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Allup.Services
+namespace CarRental.Services
 {
     public static class ImageService
     {

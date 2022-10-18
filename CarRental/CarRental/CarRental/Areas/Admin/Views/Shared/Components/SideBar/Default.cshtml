@@ -75,9 +75,55 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+                <a asp-controller="brand" asp-action="deletedbrands" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Deaktiv markalar</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa-solid fa-palette"></i>
+              <p>
+                Rənglər
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a asp-controller="color" asp-action="index" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Aktiv rənglər</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/charts/flot.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Deaktiv rənglər</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa-solid fa-car"></i>
+              <p>
+                Avtomobillər
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a asp-controller="car" asp-action="index" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Aktiv avtomobillər</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/charts/flot.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Deaktiv avtomobillər</p>
                 </a>
               </li>
             </ul>

@@ -20,7 +20,7 @@ namespace Allup.Services
         }
 
 
-        public bool SendEmail(string UserEmail, string subject, string content, byte[]? bytes = null,string? filename = null)
+        public bool SendEmail(string UserEmail, string subject, string content, byte[] bytes = null,string filename = null)
         {
             MailMessage mailMessage = new MailMessage();
             mailMessage.From = new MailAddress(_privateEmail);
