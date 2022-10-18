@@ -91,8 +91,8 @@ namespace CarRental.Areas.Admin.Controllers
                 }
 
 
-                string patsh = Path.Combine(_env.WebRootPath, @"assets\images\brand", dbBrand.ImageUrl);
-                ImageService.DeleteImage(patsh);
+                string path = Path.Combine(_env.WebRootPath, @"assets\images\brand", dbBrand.ImageUrl);
+                ImageService.DeleteImage(path);
                 dbBrand.ImageUrl = brand.Image.SaveImage(_env, @"assets\images\brand");
             }
 
@@ -111,11 +111,11 @@ namespace CarRental.Areas.Admin.Controllers
             dbBrand.Name = brand.Name;
             dbBrand.UpdatedAt = DateTime.Now;
 
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return RedirectToAction("index");
         }
 
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Remove(int? id)
         {
             if (id == null) return NotFound();
 
@@ -128,11 +128,11 @@ namespace CarRental.Areas.Admin.Controllers
             dbBrand.CreatedAt = null;
 
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("index");
 
         }
 
-        public async Task<IActionResult> DeletedBrands()
+        public async Task<IActionResult> RemovedBrands()
         {
             List<Brand> brands =await _context.Brands
                 .Where(b => b.isDeleted == true).ToListAsync();
@@ -140,15 +140,37 @@ namespace CarRental.Areas.Admin.Controllers
             return View(brands);
         }
 
-        public IActionResult Undelete(int id)
+        public async Task<IActionResult> BackUp(int id)
         {
-            Brand deletedBrands = _context.Brands.Find(id);
+            Brand deletedBrands =await _context.Brands.FindAsync(id);
+
             if (deletedBrands == null) return NotFound();
             deletedBrands.DeletedAt = null;
             deletedBrands.isDeleted = false;
             deletedBrands.CreatedAt = DateTime.Now;
-            _context.SaveChanges();
-            return RedirectToAction("index");
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("removedbrands");
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+
+            Brand dbBrand = await _context.Brands.FindAsync(id);
+
+            if (dbBrand == null) return NotFound();
+
+            if (dbBrand.ImageUrl == null) return NotFound();
+
+
+            string path = Path.Combine(_env.WebRootPath, @"assets\images\brand", dbBrand.ImageUrl);
+            ImageService.DeleteImage(path);
+
+            _context.Brands.Remove(dbBrand);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("removedbrands");
         }
 
     }

@@ -283,4 +283,7 @@ C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\
 C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Car\Index.cshtml.g.cs
 C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Brand\Create.cshtml.g.cs
 C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Brand\Update.cshtml.g.cs
-C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Brand\DeletedBrands.cshtml.g.cs
+C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Color\Create.cshtml.g.cs
+C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Brand\RemovedBrands.cshtml.g.cs
+C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Color\Update.cshtml.g.cs
+C:\Users\HP\Desktop\Final Project\RentACarProject\CarRental\CarRental\CarRental\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Color\RemovedColors.cshtml.g.cs

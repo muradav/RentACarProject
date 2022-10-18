@@ -64,7 +64,7 @@
                              <td>@String.Format("{0:dd/MM/yyyy}",item.CreatedAt).ToString()</td>
                              <td class="text-center">
                                  <a asp-action="update" asp-route-id="@item.Id" class="btn btn-sm btn-warning btn-rounded"><i class="fa fa-pen"></i></a>
-                                 <a asp-action="delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger btn-rounded"><i class="fa fa-trash"></i></a>
+                                 <a asp-action="remove" asp-route-id="@item.Id" class="btn btn-sm btn-danger btn-rounded"><i class="fa fa-eraser"></i></a>
                              </td>
                            </tr>
                         }

@@ -121,37 +121,43 @@ namespace CarRental.DAL
                     new Color
                     {
                         Id = 1,
-                        Name = "qara"
+                        Name = "Qara",
+                        CreatedAt = DateTime.Now
                     });
                 builder.Entity<Color>().HasData(
                     new Color
                     {
                         Id = 2,
-                        Name = "ağ"
+                        Name = "Ağ",
+                        CreatedAt = DateTime.Now
                     });
                 builder.Entity<Color>().HasData(
                     new Color
                     {
                         Id = 3,
-                        Name = "qəhvəyi"
+                        Name = "Qəhvəyi",
+                        CreatedAt = DateTime.Now
                     });
                 builder.Entity<Color>().HasData(
                     new Color
                     {
                         Id = 4,
-                        Name = "boz"
+                        Name = "Boz",
+                        CreatedAt = DateTime.Now
                     });
                 builder.Entity<Color>().HasData(
                     new Color
                     {
                         Id = 5,
-                        Name = "qırmızı"
+                        Name = "Qırmızı",
+                        CreatedAt = DateTime.Now
                     });
                 builder.Entity<Color>().HasData(
                     new Color
                     {
                         Id = 6,
-                        Name = "mavi"
+                        Name = "Mavi",
+                        CreatedAt = DateTime.Now
                     });
 
             #endregion
