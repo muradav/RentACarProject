@@ -1,4 +1,7 @@
-﻿namespace CarRental.Models
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CarRental.Models
 {
     public class About
     {
@@ -7,5 +10,7 @@
         public string HeaderDesc { get; set; }
         public string Desc { get; set; }
         public string ImageUrl { get; set; }
+        [NotMappedAttribute]
+        public IFormFile Image { get; set; }
     }
 }

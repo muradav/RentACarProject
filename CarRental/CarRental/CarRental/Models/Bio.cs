@@ -1,4 +1,7 @@
-﻿namespace CarRental.Models
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CarRental.Models
 {
     public class Bio
     {
@@ -8,5 +11,8 @@
         public string Contact { get; set; }
         public string Email { get; set; }
         public string WorkTime { get; set; }
+
+        [NotMappedAttribute]
+        public IFormFile Image { get; set; }
     }
 }

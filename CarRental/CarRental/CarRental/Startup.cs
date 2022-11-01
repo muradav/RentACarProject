@@ -1,14 +1,18 @@
 using Allup.Services;
 using CarRental.CustomTokenProviders;
 using CarRental.DAL;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +33,23 @@ namespace CarRental
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.ConfigureApplicationCookie(options => {
 
+                options.Events = new CookieAuthenticationEvents
+                {
+                    OnRedirectToLogin = ctx =>
+                    {
+                        var requestPath = ctx.Request.Path;
+                        if (requestPath.Value == "/Account/Login")
+                        {
+                            ctx.Response.Redirect("/Auth/Login");
+                        }
+
+                        return Task.CompletedTask;
+                    }
+                };
+
+            });
             services.AddDbContext<AppDbContext>(option =>
             {
                 option.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
@@ -39,6 +59,21 @@ namespace CarRental
              opt.TokenLifespan = TimeSpan.FromHours(2));
             services.Configure<EmailConfirmationTokenProviderOptions>(opt =>
                 opt.TokenLifespan = TimeSpan.FromHours(1));
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+            })
+            .AddCookie(opt =>
+            {
+                opt.LoginPath = "/auth/GoogleLogin";
+            })
+            .AddGoogle(opt =>
+            {
+                opt.ClientId = "346849385340-d32e5fbidashvj8u2gq1it88q00g082j.apps.googleusercontent.com";
+                opt.ClientSecret = "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";
+            })
+            ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,8 +92,8 @@ namespace CarRental
 
             app.UseHttpsRedirection();
             app.UseRouting();
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
             app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>

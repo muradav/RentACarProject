@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 
 namespace CarRental.Areas.Admin.Controllers
 {
-    [Area("Admin")]
-    public class BrandController : Controller
+    public class BrandController : BaseController
     {
+
 
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
@@ -25,7 +25,6 @@ namespace CarRental.Areas.Admin.Controllers
             _context = context;
             _env = env;
         }
-
         public async Task<IActionResult> Index()
         {
             var brands =await _context.Brands.ToListAsync();
@@ -84,7 +83,7 @@ namespace CarRental.Areas.Admin.Controllers
                     ModelState.AddModelError("Image", "Image Format Is Wrong");
                     return View();
                 }
-                if (brand.Image.ImageSize(8000))
+                if (brand.Image.ValidSize(8000))
                 {
                     ModelState.AddModelError("Image", "Image Is Oversize");
                     return View();

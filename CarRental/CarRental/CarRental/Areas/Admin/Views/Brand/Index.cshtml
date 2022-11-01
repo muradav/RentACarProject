@@ -6,6 +6,17 @@
                 #tbody tr:nth-child(2){
                     text-align:center;
                 }
+
+                .zoom {
+                  transition: transform .2s;
+                  margin: 0 auto;
+                }
+
+                .zoom:hover {
+                  -ms-transform: scale(1.5); /* IE 9 */
+                  -webkit-transform: scale(1.5); /* Safari 3-8 */
+                  transform: scale(1.5); 
+                }
     </style>
 
 }
@@ -60,11 +71,16 @@
                         {
                            <tr id="tbody">
                              <td>@item.Id</td>
-                             <td><img class="mx-2" width="55" height="55" src="~/assets/images/brand/@item.ImageUrl"/>@item.Name</td>
+                             <td>
+                                 <div class="zoom">
+                                     <img class="mx-2" width="55" height="55" src="~/assets/images/brand/@item.ImageUrl"/>
+                                     @item.Name
+                                 </div>
+                             </td>
                              <td>@String.Format("{0:dd/MM/yyyy}",item.CreatedAt).ToString()</td>
                              <td class="text-center">
                                  <a asp-action="update" asp-route-id="@item.Id" class="btn btn-sm btn-warning btn-rounded"><i class="fa fa-pen"></i></a>
-                                 <a asp-action="remove" asp-route-id="@item.Id" class="btn btn-sm btn-danger btn-rounded"><i class="fa fa-eraser"></i></a>
+                                 <a asp-action="remove" asp-route-id="@item.Id" class="btn btn-sm btn-danger btn-rounded"><i class="fa fa-xmark"></i></a>
                              </td>
                            </tr>
                         }

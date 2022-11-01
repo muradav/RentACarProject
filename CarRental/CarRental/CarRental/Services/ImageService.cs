@@ -14,7 +14,7 @@ namespace CarRental.Services
         {
             return file.ContentType.Contains("image/");
         }
-        public static bool ImageSize(this IFormFile file, int size)
+        public static bool ValidSize(this IFormFile file, int size)
         {
             return file.Length / 1024 > size;
         }

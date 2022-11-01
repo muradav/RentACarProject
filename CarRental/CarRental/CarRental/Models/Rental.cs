@@ -8,6 +8,10 @@ namespace CarRental.Models
 
         public DateTime ReturnDate { get; set; }
 
+        public string InvoiceNo { get; set; }
+
+        public bool isPaid { get; set; }
+
         #region CarRentalRelation
         public int CarId { get; set; }
         public Car Car { get; set; }

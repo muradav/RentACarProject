@@ -24,19 +24,19 @@
                   <li><a asp-controller="home" asp-action="index" class="nav-link"><strong>Əsas Səhifə</strong></a></li>
                   <li><a asp-controller="car" asp-action="index" class="nav-link"><strong>Avtomobil icarəsi</strong></a></li>
                   <!-- <li><a href="testimonials.html" class="nav-link">Bloq</a></li> -->
-                  <li><a href="blog.html" class="nav-link"><strong>Bloq</strong></a></li>
+                  @*<li><a href="blog.html" class="nav-link"><strong>Bloq</strong></a></li>*@
                   <li><a asp-controller="about" asp-action="index" class="nav-link"><strong>Haqqımızda</strong></a></li>
                   <li><a asp-controller="contact" asp-action="index" class="nav-link"><strong>Əlaqə</strong></a></li>
                 </ul>
               </nav>
             </div>
             <div class="col-3 text-sm-right dropdown show">
-              <a role="button" type="button" class="btn" data-toggle="dropdown"> 
+              <a role="button" class="btn" data-toggle="dropdown"> 
                 @if (User.Identity.IsAuthenticated)
                 {
                     if (Model.User.ImageUrl!=null)
                     {
-                        <img src="~/assets/images/@Model.User.ImageUrl" style="width: 40px; border-radius:50%;" alt="">
+                        <img src="~/assets/images/user/@Model.User.ImageUrl" style="width: 40px; border-radius:50%;" alt="">
                     }
                     else
                     {
@@ -59,14 +59,14 @@
                              {
                              
                                 <li><a class="dropdown-item" asp-area="admin" asp-controller="dashboard" asp-action="index">Admin panel</a></li>
-                                <li><a class="dropdown-item" asp-controller="" asp-action="">Mənim hesabım</a></li>
+                                <li><a class="dropdown-item" asp-controller="auth" asp-action="editprofile" asp-route-id="@Model.User.Id">Mənim hesabım</a></li>
                                 <li><a class="dropdown-item" asp-controller="" asp-action="">İcarə etdiklərim</a></li>
                                 <li><a class="dropdown-item" asp-controller="auth" asp-action="logout">Çıxış</a></li>
                              
                              }
                              else
                              {
-                                <li><a class="dropdown-item" asp-controller="" asp-action="">Mənim hesabım</a></li>
+                                <li><a class="dropdown-item" asp-controller="auth" asp-action="editprofile" asp-route-id="@Model.User.Id">Mənim hesabım</a></li>
                                 <li><a class="dropdown-item" asp-controller="" asp-action="">İcarə etdiklərim</a></li>
                                 <li><a class="dropdown-item" asp-controller="auth" asp-action="logout">Çıxış</a></li>
                              

@@ -11,6 +11,10 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using CarRental.Extentions;
 using System.Collections.Generic;
+using CarRental.Services;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using SelectPdf;
+using Allup.Services;
 
 namespace CarRental.Controllers
 {
@@ -28,8 +32,10 @@ namespace CarRental.Controllers
         }
 
 
-        public async Task<IActionResult> Index(int id)
+        public async Task<IActionResult> Index(int? id, string error)
         {
+            if (id == null) return RedirectToAction("index", "car");
+
             RentDetailVM rentDetail = new RentDetailVM();
 
             if (User.Identity.IsAuthenticated)
@@ -41,6 +47,12 @@ namespace CarRental.Controllers
                 return RedirectToAction("login", "auth");
             }
             rentDetail.Car =await _context.Cars.Include(c => c.Brand).FirstOrDefaultAsync(c=>c.Id==id);
+
+            if (error != null)
+            {
+                ModelState.AddModelError("Error", error);
+                return View(rentDetail);
+            }
 
             return View(rentDetail);
         }
@@ -68,35 +80,110 @@ namespace CarRental.Controllers
                     var checkDate = startDate.InRange(item.RentDate, item.ReturnDate);
                     if (checkDate)
                     {
-                        ModelState.AddModelError("Error", $"Car is reserved from {item.RentDate.ToString("MM/dd/yyyy")} till {item.ReturnDate.ToString("MM/dd/yyyy")}");
-                        return View();
+                        string error = $"Avtomobil {item.RentDate.ToString("MM/dd/yyyy")}'dən {item.ReturnDate.ToString("MM/dd/yyyy")}'dək icarədədir";
+                        
+                        return RedirectToAction("index", new {id=item.CarId, error=error});
                     }
                 }
 
             }
-           
 
-            Rental newRental = new Rental()
-            {
-                UserId = userId,
-                CarId = carId,
-                RentDate = startDate,
-                ReturnDate = endDate,
-                CreatedAt = DateTime.Now
-            };
+
+            Rental newRental = new Rental();
+            Random random = new Random();
+
+            newRental.UserId = userId;
+            newRental.CarId = carId;
+            newRental.RentDate = startDate;
+            newRental.ReturnDate = endDate;
+            newRental.CreatedAt = DateTime.Now;
+            
+            
 
             await _context.AddAsync(newRental);
             await _context.SaveChangesAsync();
 
-            return RedirectToAction("sendinvoice");
+            newRental.InvoiceNo = random.Next(1, 99).ToString() + newRental.Id.ToString();
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("payment", new { id = newRental.Id});
         }
 
-        public IActionResult SuccessView()
+        public async Task<IActionResult> Invoice()
+        {
+
+            //var rental =await _context.Rentals
+            //    .Include(r => r.User)
+            //   .Include(r => r.Car)
+            //   .ThenInclude(c => c.Brand)
+            //   .FirstOrDefaultAsync(r => r.Id == id);
+
+            ViewBag.Rental = await _context.Rentals
+                .Include(r => r.User)
+                .Include(r => r.Car)
+                .ThenInclude(c => c.Brand)
+                .LastOrDefaultAsync();
+
+            return View(); 
+        }
+
+        public IActionResult SendInvoice()
         {
             return View();
         }
 
-        public IActionResult SendInvoice(int? id)
+        public byte[] InvoiceGenerator(int id)
+        {
+            var desktopView = new HtmlToPdf();
+            desktopView.Options.WebPageWidth = 1024;
+
+
+            var pdf = desktopView.ConvertUrl($"https://localhost:44300/rental/invoice/{id}");
+            var pdfBytes = pdf.Save();
+
+            return pdfBytes;
+        }
+
+        [Route("pay")]
+        public async Task<dynamic> Pay(Payment payment)
+        {
+            if (!ModelState.IsValid) return RedirectToAction("payment");
+
+            
+
+            
+
+            var result = await MakePayment.PayAsync(payment);
+
+            if (result == "Success")
+            {
+                return RedirectToAction("invoice");
+            }
+            else
+            {
+                return RedirectToAction("Error", result);
+            }
+            
+        }
+
+        public IActionResult Payment(int? id)
+        {
+            if (id == null)
+            {
+                ModelState.AddModelError("Error", "Belə avtomobil mövcud deyil");
+                return RedirectToAction("rent");
+            }
+
+            var rental = _context.Rentals.Include(r => r.Car).FirstOrDefault(r => r.Id == id);
+            var car = _context.Cars.Include(c => c.Brand).FirstOrDefault(c => c.Id == rental.CarId);
+            ViewBag.Car = car;
+            ViewBag.Rental = rental;
+
+            return View();
+        }
+
+        public IActionResult Success()
         {
             return View();
         }

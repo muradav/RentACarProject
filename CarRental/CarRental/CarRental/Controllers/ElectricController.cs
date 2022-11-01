@@ -24,7 +24,7 @@ namespace CarRental.Controllers
 
 
             electric.Cars = await _context.Cars
-                .Where(c => c.FuelType == "Elektrik")
+                .Where(c => c.FuelType == Car.FuelTypes.Elektrik)
                 .Include(c => c.Brand)
                 .Include(c => c.CarImages)
                 .Include(c => c.Color).ToListAsync();

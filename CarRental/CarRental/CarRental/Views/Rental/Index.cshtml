@@ -24,7 +24,7 @@
 <div class="site-section">
     <div class="container bg-light px-5 py-4">
          <form method="post" asp-action="rent">
-             <span class="text-danger fw-bold">@Html.ValidationMessage("Error")</span>
+             <span class="text-danger fw-bold mb-3">@Html.ValidationMessage("Error")</span>
               <div class="row">
                    <div class="col-sm-7">
                         <div class="row">
@@ -108,24 +108,7 @@
 
 
  @section Scripts{
-     <script>    
-        //$(document).ready(function() {
-        //    $("#rentdatepicker").datepicker({
-        //        format: "dd-M-yyyy",
-        //        todayHighlight: true,
-        //        autoclose: true,
-        //        clearBtn: true
-        //    });
-        //});
-
-        //$(document).ready(function() {
-        //    $("#returndatepicker").datepicker({
-        //        format: "dd-M-yyyy",
-        //        todayHighlight: true,
-        //        autoclose: true,
-        //        clearBtn: true
-        //    });
-        //});
+     <script> 
 
          let startDate = document.getElementById("startDate")
          let endDate = document.getElementById("endDate")

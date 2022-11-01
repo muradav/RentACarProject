@@ -17,6 +17,7 @@ namespace CarRental.ViewModels
         public string Email { get; set; }
 
         [Required(ErrorMessage = ("Telefon nömrəsi daxil edin")), DataType(DataType.PhoneNumber)]
+        [Phone(ErrorMessage =("Telefon nömrəsi daxil edin"))]
         public string PhoneNumber { get; set; }
 
         [Required(ErrorMessage = ("Şifrə daxil edin")), DataType(DataType.Password)]

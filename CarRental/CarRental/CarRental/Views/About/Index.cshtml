@@ -45,19 +45,22 @@
 
           @foreach (var item in Model.Teams)
          {
-             <div class="col-lg-4 col-md-6 mb-5">
-            <div class="post-entry-1 h-100 person-1">
-              
-                <img src="/assets/images/@item.ImageUrl" alt="Image"
-                 class="img-fluid">
+             if (item.isDeleted==false)
+             {
+                 <div class="col-lg-4 col-md-6 mb-5">
+                 <div class="post-entry-1 h-100 person-1">
+             
+                     <img src="/assets/images/member/@item.ImageUrl" alt="Image"
+                      class="img-fluid">
             
-              <div class="post-entry-1-contents">
-                <span class="meta">@item.Position</span>
-                <h2>@item.Name @item.Surname</h2>
-                @*<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, sapiente.</p>*@
-              </div>
-            </div>
-          </div>
+                   <div class="post-entry-1-contents">
+                     <span class="meta">@item.Position</span>
+                     <h2>@item.Name @item.Surname</h2>
+                     @*<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, sapiente.</p>*@
+                   </div>
+                 </div>
+               </div>
+             }
          }
 
 

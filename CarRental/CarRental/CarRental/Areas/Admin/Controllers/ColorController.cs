@@ -11,8 +11,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Areas.Admin.Controllers
 {
-    [Area("Admin")]
-    public class ColorController : Controller
+    public class ColorController : BaseController
     {
 
         private readonly AppDbContext _context;

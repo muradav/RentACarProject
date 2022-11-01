@@ -41,16 +41,24 @@
                             <span class="text-danger" asp-validation-for="Email"></span>
                         </div>
                          <div class="single-form mb-4" style=" flex-direction: column; display: flex;">
-                            <input asp-for="PhoneNumber" placeholder="Telefon" autocomplete="off" style="width:75%;" />
+                            <input asp-for="PhoneNumber" type="tel" id="phone" placeholder="Telefon" autocomplete="off" style="width:75%;" />
                             <span class="text-danger" asp-validation-for="PhoneNumber"></span>
                         </div>
-                        <div class="single-form mb-4" style=" flex-direction: column; display: flex;">
-                            <input asp-for="Password" placeholder="Şifrə" autocomplete="off" style="width:75%;" />
+                        <div class="single-form my-4" style=" flex-direction: column; display: flex;">
+                            <input asp-for="Password" placeholder="Şifrə" style="width:75%;" id="password">
                             <span class="text-danger" asp-validation-for="Password"></span>
+                            <div class="custom-checkbox">
+                                <input type="checkbox" id="showPassword">
+                                <label for="showPassword">Şifrəni göstər</label>
+                            </div>
                         </div>
-                        <div class="single-form mb-4" style=" flex-direction: column; display: flex;">
-                            <input asp-for="RepeatPassword" placeholder="Təkrar Şifrə" autocomplete="off" style="width:75%;" />
+                        <div class="single-form my-4" style=" flex-direction: column; display: flex;">
+                            <input asp-for="RepeatPassword" placeholder="Təkrar Şifrə" style="width:75%;" id="rePassword">
                             <span class="text-danger" asp-validation-for="RepeatPassword"></span>
+                            <div class="custom-checkbox">
+                                <input type="checkbox" id="showRePassword">
+                                <label for="showRePassword">Şifrəni göstər</label>
+                            </div>
                         </div>
                         <div class="single-form">
                             <button type="submit" class="btn btn-dark">Qeydiyyatdan keç</button>
@@ -61,3 +69,20 @@
         </div>
     </div>
 </section>
+
+
+@section Scripts{
+    <script>
+        $(function () {
+            $('#showPassword').click(function () {  
+                $('#password').attr('type', $(this).is(':checked') ? 'text' : 'password');  
+            });
+        });
+        
+        $(function () {
+            $('#showRePassword').click(function () {  
+                $('#rePassword').attr('type', $(this).is(':checked') ? 'text' : 'password');  
+            });
+        });
+    </script>
+}
